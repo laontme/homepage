@@ -6,11 +6,23 @@
 }
 
 body {
-    background: #1c1d22;
+    background: #f8f8f8;
     font-family: 'Ubuntu', sans-serif;
     width: 50%;
     height: 100%;
     margin-left: 25%;
+}
+
+.about {
+    font-size: 24px;
+    margin-top: 10px;
+    line-height: 30px;
+    color: #3D3D3D;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
 }
 
 nav ul {
@@ -21,7 +33,7 @@ nav ul {
 }
 
 nav ul .page a {
-    color: white;
+    color: #202020;
 }
 
 
@@ -30,64 +42,80 @@ nav a {
     text-decoration: none;
     font-size: 35px;
     font-weight: 300;
-    transition: 1s;
+    transition: color 0.3s;
 }
 
 nav a:hover {
-    transition: 1s;
-    color: white;
+    color: #202020;
 }
 
-.title {
-    margin-top: 75px;
+main div.title {
+    margin-top: 40px;
 }
 
 h1 {
     display: inline;
     font-weight: 700;
-    color: white;
-    font-size: 100px;
+    color: #202020;
+    font-size: 110px;
 }
 
 img {
-    margin-right: 20px;
+    margin-right: 0;
 }
 
-.content {
-    color: #bbb;
-    font-size: 40px;
-    text-align: justify;
+.contacts {
+    font-size: 30px;
 }
 
-.project {
+.projects {
+    font-size: 25px;
+    line-height: 30px;
+    color: #3D3D3D;
+}
+
+.projects p {
+    margin-top: 20px;
+}
+
+a {
     color: #006dd3;
     text-decoration: none;
 }
 
-p {
+.about {
     margin-bottom: 20px;
 }
 
-.email {
-    color: #0084ff;
+#email {
+    color: #49b6ff;
 }
 
-.telegram {
-    color: #ff4271;
+#telegram {
+    color: #779be7;
 }
 
-.vk {
-    color: #fffc52;
+#vk {
+    color: #a480cf;
 }
 
-.github {
-    color: #42ff7b;
+#github {
+    color: #d264b6;
 }
 
-.boosty{
+.boosty .header {
     color: #f15f2c;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
 }
 
-.content a {
-    text-decoration: none;
+.boosty {
+    background: white;
+    padding: 15px;
+    border-radius: 20px;
+    font-size: 20px;
+    line-height: 25px;
+    color: #3D3D3D;
+    text-align: justify;
 }
