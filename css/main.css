@@ -13,18 +13,6 @@ body {
     margin-left: 25%;
 }
 
-.about {
-    font-size: 24px;
-    margin-top: 10px;
-    line-height: 30px;
-    color: #3D3D3D;
-}
-
-.title {
-    display: flex;
-    justify-content: space-between;
-}
-
 nav ul {
     margin-top: 50px;
     display: flex;
@@ -35,7 +23,6 @@ nav ul {
 nav ul .page a {
     color: #202020;
 }
-
 
 nav a {
     color: #89898c;
@@ -49,10 +36,6 @@ nav a:hover {
     color: #202020;
 }
 
-main div.title {
-    margin-top: 40px;
-}
-
 h1 {
     display: inline;
     font-weight: 700;
@@ -60,8 +43,45 @@ h1 {
     font-size: 110px;
 }
 
+.title {
+    display: flex;
+    justify-content: space-between;
+}
+
+main div.title {
+    margin-top: 40px;
+}
+
+.about {
+    font-size: 24px;
+    margin-top: 10px;
+    line-height: 30px;
+    color: #3D3D3D;
+}
+
 img {
     margin-right: 0;
+}
+
+.donate {
+    background: white;
+    padding: 15px;
+    border-radius: 20px;
+    font-size: 20px;
+    line-height: 25px;
+    color: #3D3D3D;
+    text-align: justify;
+}
+
+.donate .header {
+    color: #202020;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+details {
+    cursor: default;
 }
 
 .contacts {
@@ -103,19 +123,3 @@ a {
     color: #d264b6;
 }
 
-.boosty .header {
-    color: #f15f2c;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-}
-
-.boosty {
-    background: white;
-    padding: 15px;
-    border-radius: 20px;
-    font-size: 20px;
-    line-height: 25px;
-    color: #3D3D3D;
-    text-align: justify;
-}

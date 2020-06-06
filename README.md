@@ -5,11 +5,11 @@
 ## Project tree
 ```
 ├── css               Css
-│   ├── main.css      Main css
-│   └── mobile.css    Css for modile and tablets
+│   ├── main.css      Main css
+│   └── mobile.css    Css for modile and tablets
 ├── img               Images
-│   ├── boosty.svg    boosty.to logo
-│   └── raccoon.svg   Raccoon twemoji
+│   ├── money-bag.svg Money bag twemoji
+│   └── raccoon.svg   Raccoon twemoji
 ├── index.html        Index page with about
 ├── projects.html     Projects page
 └── contacts.html     Contacts page
