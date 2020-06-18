@@ -64,13 +64,15 @@ img {
 }
 
 .donate {
+    margin-left: 30%;
     background: white;
     padding: 15px;
     border-radius: 20px;
     font-size: 20px;
     line-height: 25px;
-    color: #3D3D3D;
-    text-align: justify;
+    color: black;
+    text-align: center;
+    width: 40%;
 }
 
 .donate .header {
