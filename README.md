@@ -1,5 +1,4 @@
 # homepage
-[@laont](https://github.com/laont) homepage
 > Simple homepage without js. Only html and css
 
 ## Project tree
