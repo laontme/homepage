@@ -61,6 +61,7 @@ main div.title {
 
 img {
     margin-right: 0;
+    border-radius: 100%;
 }
 
 .donate {
@@ -104,18 +105,22 @@ a {
 }
 
 #email {
-    color: #49b6ff;
+    color: #f03e3e;
 }
 
 #telegram {
-    color: #779be7;
+    color: #fcc419;
 }
 
 #vk {
-    color: #a480cf;
+    color: #51cf66;
+}
+
+#inst {
+    color: #339af0;
 }
 
 #github {
-    color: #d264b6;
+    color: #cc5de8;
 }
 
