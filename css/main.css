@@ -1,126 +1,73 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,700&display=swap');
-
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
 }
 
 body {
-    background: #f8f8f8;
-    font-family: 'Ubuntu', sans-serif;
-    width: 50%;
-    height: 100%;
-    margin-left: 25%;
+  height: 100%;
+  overflow: hidden;
+  font-style: normal;
+  font-family: Raleway;
+  font-weight: 900;
+  background: linear-gradient(45deg, #ff5f6d, #ffc371);
+  color: white;
+  font-size: 50px;
+  padding: 50px;
 }
 
-nav ul {
-    margin-top: 50px;
-    display: flex;
-    list-style: none;
-    justify-content: space-between;
+box-icon {
+  fill: rgba(255, 255, 255, 50%);
 }
 
-nav ul .page a {
-    color: #202020;
+box-icon:hover main {
+  filter: blur(5px);
 }
 
-nav a {
-    color: #89898c;
-    text-decoration: none;
-    font-size: 35px;
-    font-weight: 300;
-    transition: color 0.3s;
+ul {
+  display: flex;
+  list-style: none;
+  margin-top: 20px;
 }
 
-nav a:hover {
-    color: #202020;
+h1,
+li,
+#quote {
+  transition: filter 200ms ease;
 }
 
-h1 {
-    display: inline;
-    font-weight: 700;
-    color: #202020;
-    font-size: 110px;
-}
-
-.title {
-    display: flex;
-    justify-content: space-between;
-}
-
-main div.title {
-    margin-top: 40px;
-}
-
-.about {
-    font-size: 24px;
-    margin-top: 10px;
-    line-height: 30px;
-    color: #3D3D3D;
+main {
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  min-height: 100%;
+  z-index: 50;
 }
 
 img {
-    margin-right: 0;
-    border-radius: 100%;
+  height: 300px;
 }
 
-.donate {
-    margin-left: 24%;
-    background: white;
-    /*padding: 15px;*/
-    border-radius: 20px;
-    font-size: 20px;
-    /*line-height: 25px;*/
-    color: black;
-    text-align: center;
-    width: 50%;
-    padding: 2%;
+#quotee {
+  display: flex;
+  height: 100%;
+  min-height: 100%;
+  /* width: 100%;
+  min-width: 100%; */
+  position: absolute;
+  right: 200px;
+  top: 0;
+  z-index: 100;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-details {
-    cursor: default;
+h1 {
+  line-height: 65px;
 }
-
-.contacts {
-    font-size: 30px;
-}
-
-.projects {
-    font-size: 25px;
-    line-height: 30px;
-    color: #3D3D3D;
-}
-
-.projects p {
-    margin-top: 20px;
-}
-
-a {
-    color: #006dd3;
-    text-decoration: none;
-}
-
-.about {
-    margin-bottom: 20px;
-}
-
-#email {
-    color: #f03e3e;
-}
-
-#telegram {
-    color: #fcc419;
-}
-
-#vk {
-    color: #51cf66;
-}
-
-#inst {
-    color: #339af0;
-}
-
-#github {
-    color: #cc5de8;
-}
-

@@ -1,12 +1,35 @@
 body {
-    width: 90%;
-    margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  /* align-items: center; */
 }
-h1 {
-    font-size: 78px;
+
+main {
+  display: unset;
+  min-height: unset;
+  height: unset;
 }
-.donate{
-    font-size: 25px;
-    width: 80%;
-    margin-left: 9%;
+
+ul {
+  justify-content: center;
+}
+
+img {
+  height: 300px;
+}
+
+#quotee {
+  display: unset;
+  height: unset;
+  min-height: unset;
+  /* width: 100%;
+    min-width: 100%; */
+  position: unset;
+  right: unset;
+  top: unset;
+  z-index: unset;
+  flex-direction: unset;
+  justify-content: unset;
 }
