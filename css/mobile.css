@@ -10,6 +10,15 @@ main {
   display: unset;
   min-height: unset;
   height: unset;
+  font-size: 1.7em;
+}
+
+h1 {
+  line-height: 105px;
+}
+
+.bx {
+  font-size: 1.3em;
 }
 
 #contacts {

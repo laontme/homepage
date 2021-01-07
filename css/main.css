@@ -20,12 +20,8 @@ body {
   padding: 50px;
 }
 
-box-icon {
-  fill: rgba(255, 255, 255, 50%);
-}
-
-box-icon:hover main {
-  filter: blur(5px);
+.bx {
+  color: rgba(255, 255, 255, 50%);
 }
 
 ul {
