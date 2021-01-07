@@ -12,6 +12,10 @@ main {
   height: unset;
 }
 
+#contacts {
+  margin-bottom: 70px;
+}
+
 ul {
   justify-content: center;
 }
