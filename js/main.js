@@ -1,11 +1,11 @@
 const contacts = Array.from(document.querySelectorAll('#contacts > ul > li'));
 const skills = Array.from(document.querySelectorAll('#skills > ul > li'));
-const quote = document.getElementById('quote');
+const zzz = document.getElementById('zzz');
 const headings = Array.from(document.getElementsByTagName('h1'));
 
 console.log(contacts);
 console.log(skills);
-console.log(quote);
+console.log(zzz);
 
 contacts.forEach((el, i) => {
   el.addEventListener('mouseenter', () => {
@@ -17,8 +17,8 @@ skills.forEach((el, i) => {
     blur('skill', el);
   });
 });
-quote.addEventListener('mouseenter', () => {
-  blur('quote', quote);
+zzz.addEventListener('mouseenter', () => {
+  blur('zzz', zzz);
 });
 
 contacts.forEach((el, i) => {
@@ -31,7 +31,7 @@ skills.forEach((el, i) => {
     unblur();
   });
 });
-quote.addEventListener('mouseleave', () => {
+zzz.addEventListener('mouseleave', () => {
   unblur();
 });
 
@@ -45,7 +45,7 @@ function blur(type, element) {
   skills.forEach((el, i) => {
     el.style.filter = 'blur(5px)';
   });
-  quote.style.filter = 'blur(5px)';
+  zzz.style.filter = 'blur(5px)';
 
   element.style.filter = 'none';
 }
@@ -60,5 +60,5 @@ function unblur() {
   skills.forEach((el, i) => {
     el.style.filter = 'none';
   });
-  quote.style.filter = 'none';
+  zzz.style.filter = 'none';
 }
