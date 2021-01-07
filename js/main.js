@@ -3,22 +3,18 @@ const skills = Array.from(document.querySelectorAll('#skills > ul > li'));
 const zzz = document.getElementById('zzz');
 const headings = Array.from(document.getElementsByTagName('h1'));
 
-console.log(contacts);
-console.log(skills);
-console.log(zzz);
-
 contacts.forEach((el, i) => {
   el.addEventListener('mouseenter', () => {
-    blur('contact', el);
+    blur(el);
   });
 });
 skills.forEach((el, i) => {
   el.addEventListener('mouseenter', () => {
-    blur('skill', el);
+    blur(el);
   });
 });
 zzz.addEventListener('mouseenter', () => {
-  blur('zzz', zzz);
+  blur(zzz);
 });
 
 contacts.forEach((el, i) => {
@@ -35,7 +31,7 @@ zzz.addEventListener('mouseleave', () => {
   unblur();
 });
 
-function blur(type, element) {
+function blur(element) {
   headings.forEach((el, i) => {
     el.style.filter = 'blur(5px)';
   });
