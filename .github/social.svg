@@ -12,9 +12,9 @@
    viewBox="0 0 338.66666 169.33334"
    version="1.1"
    id="svg949"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
    sodipodi:docname="social.svg"
-   inkscape:export-filename="D:\Projects\homepage\.github\social.png"
+   inkscape:export-filename="P:\homepage\.github\social.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
@@ -162,22 +162,22 @@
            sodipodi:role="line">@laontme</tspan></text>
     </g>
     <g
-       transform="matrix(0.71292763,0,0,0.71292763,27.001954,36.377695)"
-       id="layer1-0"
-       inkscape:label="Layer 1">
+       id="layer1-6"
+       inkscape:label="Layer 1"
+       transform="matrix(0.71292763,0,0,0.71292763,27.001954,36.377702)">
       <circle
          r="67.733337"
          cy="67.733337"
          cx="67.733337"
-         id="path905"
+         id="path905-6"
          style="opacity:1;fill:#000000;stroke:none;stroke-width:0.32255" />
       <path
          sodipodi:type="star"
          style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:4.59608;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="path1330-115"
+         id="path1330-115-6"
          sodipodi:sides="3"
-         sodipodi:cx="64.778297"
-         sodipodi:cy="70.778877"
+         sodipodi:cx="67.733337"
+         sodipodi:cy="67.733337"
          sodipodi:r1="46.30011"
          sodipodi:r2="23.150055"
          sodipodi:arg1="0.24198551"
@@ -185,7 +185,7 @@
          inkscape:flatsided="true"
          inkscape:rounded="0"
          inkscape:randomized="0"
-         d="M 109.72941,81.873808 32.694249,104.16022 51.911232,26.302605 Z"
+         d="M 112.68445,78.828268 35.649289,101.11468 54.866272,23.257065 Z"
          inkscape:transform-center-x="-6.433533"
          inkscape:transform-center-y="-5.5474652" />
     </g>
