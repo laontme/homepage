@@ -1,6 +1,6 @@
 const contacts = Array.from(document.querySelectorAll('#contacts > ul > li'));
 const skills = Array.from(document.querySelectorAll('#skills > ul > li'));
-const zzz = document.getElementById('zzz');
+const blog = document.getElementById('blog');
 const headings = Array.from(document.getElementsByTagName('h1'));
 
 contacts.forEach((el, i) => {
@@ -13,8 +13,8 @@ skills.forEach((el, i) => {
     blur(el);
   });
 });
-zzz.addEventListener('mouseenter', () => {
-  blur(zzz);
+blog.addEventListener('mouseenter', () => {
+  blur(blog);
 });
 
 contacts.forEach((el, i) => {
@@ -27,7 +27,7 @@ skills.forEach((el, i) => {
     unblur();
   });
 });
-zzz.addEventListener('mouseleave', () => {
+blog.addEventListener('mouseleave', () => {
   unblur();
 });
 
@@ -41,7 +41,7 @@ function blur(element) {
   skills.forEach((el, i) => {
     el.style.filter = 'blur(5px)';
   });
-  zzz.style.filter = 'blur(5px)';
+  blog.style.filter = 'blur(5px)';
 
   element.style.filter = 'none';
 }
@@ -56,5 +56,5 @@ function unblur() {
   skills.forEach((el, i) => {
     el.style.filter = 'none';
   });
-  zzz.style.filter = 'none';
+  blog.style.filter = 'none';
 }
