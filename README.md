@@ -2,7 +2,7 @@
 
 > Simple homepage
 
-[![dribbble shot](https://cdn.dribbble.com/users/6082888/screenshots/14886746/media/09146f1499732cd216f24234f2c547b4.png)](https://dribbble.com/shots/14886746)
+[![dribbble shot](https://cdn.dribbble.com/users/6082888/screenshots/14898457/media/30d44438e501e0dfd0e5ca4a9f61a439.jpg)](https://dribbble.com/shots/14898457)
 
 
 ## Project tree
