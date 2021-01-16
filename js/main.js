@@ -1,6 +1,6 @@
 const contacts = Array.from(document.querySelectorAll('#contacts > ul > li'));
 const skills = Array.from(document.querySelectorAll('#skills > ul > li'));
-const blog = document.getElementById('blog');
+const about = Array.from(document.querySelectorAll('#about > ul > li'));
 const headings = Array.from(document.getElementsByTagName('h1'));
 
 contacts.forEach((el, i) => {
@@ -13,8 +13,10 @@ skills.forEach((el, i) => {
     blur(el);
   });
 });
-blog.addEventListener('mouseenter', () => {
-  blur(blog);
+about.forEach((el, i) => {
+  el.addEventListener('mouseenter', () => {
+    blur(el);
+  });
 });
 
 contacts.forEach((el, i) => {
@@ -27,8 +29,10 @@ skills.forEach((el, i) => {
     unblur();
   });
 });
-blog.addEventListener('mouseleave', () => {
-  unblur();
+about.forEach((el, i) => {
+  el.addEventListener('mouseleave', () => {
+    unblur();
+  });
 });
 
 function blur(element) {
@@ -41,7 +45,9 @@ function blur(element) {
   skills.forEach((el, i) => {
     el.style.filter = 'blur(5px)';
   });
-  blog.style.filter = 'blur(5px)';
+  about.forEach((el, i) => {
+    el.style.filter = 'blur(5px)';
+  });
 
   element.style.filter = 'none';
 }
@@ -56,5 +62,7 @@ function unblur() {
   skills.forEach((el, i) => {
     el.style.filter = 'none';
   });
-  blog.style.filter = 'none';
+  about.forEach((el, i) => {
+    el.style.filter = 'none';
+  });
 }

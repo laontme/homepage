@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -84,16 +84,6 @@
          style="stop-color: rgb(172, 182, 229);"
          id="stop862" />
     </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#gradient-8"
-       id="linearGradient892"
-       x1="-571.23193"
-       y1="226.11942"
-       x2="-138.42792"
-       y2="653.33636"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(571.23194,-226.11942)" />
   </defs>
   <sodipodi:namedview
      pagecolor="#ffffff"
@@ -119,10 +109,11 @@
      inkscape:zoom="0.91875"
      inkscape:cx="116.67838"
      inkscape:cy="266.26004"
-     inkscape:current-layer="svg4" />
+     inkscape:current-layer="svg4"
+     inkscape:document-rotation="0" />
   <path
      id="blob"
      d="m 417.92307,274.42064 q -25,56.5 -64.5,106.5 -39.5,50 -102.5,46 -63,-4 -125.99999,-17 -63.000003,-13 -98.000003,-69.5 -35.0000001,-56.5 -24.5000001,-119.5 10.5000001,-63 34.5000001,-123.000005 24,-60 87.500003,-72.5 63.49999,-12.5 129.99999,-23.5000002 66.5,-10.9999996 110.5,41.0000002 44,52 61,113.500005 17,61.5 -8,118 z"
      fill="#d1d8e0"
-     style="fill:url(#linearGradient892);fill-opacity:1" />
+     style="fill:#868e96;fill-opacity:1" />
 </svg>
