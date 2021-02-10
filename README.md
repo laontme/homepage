@@ -14,8 +14,7 @@
 
 ```
 ├── assets            assets like logo and favicon
-├── js                js
-├── css               js
+├── css               css
 │   ├── main.css      main css
 │   └── mobile.css    css for modile and tablets
 ├── img               images
