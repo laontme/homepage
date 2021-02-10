@@ -1,7 +1,7 @@
 ![html badge](https://img.shields.io/badge/html-red?style=for-the-badge)
 ![css badge](https://img.shields.io/badge/css-blue?style=for-the-badge)
 ![js badge](https://img.shields.io/badge/js-yellow?style=for-the-badge)
-[![node badge](https://img.shields.io/badge/made_with-❤-ff3053?style=for-the-badge)](https://laont.me/)
+[![love badge](https://img.shields.io/badge/made_with-❤-ff3053?style=for-the-badge)](https://laont.me/)
 
 # homepage
 
@@ -14,8 +14,7 @@
 
 ```
 ├── assets            assets like logo and favicon
-├── js                js
-├── css               js
+├── css               css
 │   ├── main.css      main css
 │   └── mobile.css    css for modile and tablets
 ├── img               images
