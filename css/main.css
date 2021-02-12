@@ -11,6 +11,7 @@ html, body, main {
 body {
   font-family: Raleway;
   font-weight: 900;
+  font-display: swap;
   background: white;
   color: #343a40;
   font-size: 50px;
