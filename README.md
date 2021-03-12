@@ -1,4 +1,3 @@
-[![hosting](https://img.shields.io/badge/hosting-vercel-black?style=for-the-badge)](https://vercel.com/)
 [![love badge](https://img.shields.io/badge/made_with_❤-ff3053?style=for-the-badge)](https://laont.me/)
 
 # homepage
