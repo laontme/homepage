@@ -1,27 +1,15 @@
-[![love badge](https://img.shields.io/badge/made_with_❤-ff3053?style=for-the-badge)](https://laont.me/)
+![vuejs](https://img.shields.io/badge/vue_inside-42b883?style=flat)
+[![license](https://img.shields.io/badge/mit_license-black?style=flat)](/LICENSE.md)
+[![love](https://img.shields.io/badge/made_with_❤-ff3053?style=flat)](https://laont.me/)
 
 # homepage
+> my personal homepage
 
-> Simple homepage
+## usage
+*TODO*
 
-## Project tree
+## contact
+[laont.me](https://laont.me) and [stanislav@laont.me](mailto:stanislav@laont.me)
 
-```
-├── assets            assets like logo and favicon
-├── css               css
-│   ├── main.css      main css
-│   └── mobile.css    css for modile and tablets
-├── img               images
-├── vercel.json       just disable vercel flood
-└── index.html        main html
-```
-
-## Author
-Site: [laont.me](https://laont.me)
-
-Email: [stanislav@laont.me](mailto:stanislav@laont.me)
-
-You can [donate me](https://capu.st/laontme). It will help me a lot in my endeavors
-
-## License
+## license
 This repository is licensed under [MIT license](/LICENSE.md). You can freely copy, modify and distribute code, but with notice about license and copyright
