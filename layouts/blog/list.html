@@ -1,0 +1,44 @@
+{{ define "main" }}
+<section class="relative">
+  <div class="max-w-6xl mx-auto px-6 py-24 relative">
+    <div class="relative z-10">
+      <div class="flex items-center gap-4 mb-6">
+        {{ partial "components/back-link.html" (dict "href" "/" "text" "Home") }}
+      </div>
+      <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+        Writing
+      </h1>
+      <p class="text-xl text-secondary leading-relaxed max-w-2xl mb-6">
+        {{ .Description | default "Writing from the work" }}
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-surface">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="font-headline text-3xl md:text-4xl font-semibold">Recent Posts</h2>
+      <a href="{{ "index.xml" | relURL }}" class="inline-flex items-center text-accent hover:text-foreground transition-colors" aria-label="Subscribe to RSS" title="Subscribe to RSS">
+        <iconify-icon icon="tabler:rss" class="text-lg"></iconify-icon>
+      </a>
+    </div>
+    {{ partial "components/empty-state.html" (dict "title" "No posts yet" "subtitle" "Check back soon, or <a href=\"/index.xml\" class=\"text-accent font-medium underline underline-offset-4 decoration-accent/40 hover:text-foreground transition-colors\">subscribe to RSS</a>") }}
+  </div>
+</section>
+
+<section class="py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="font-headline text-3xl md:text-4xl font-semibold mb-8">All Topics</h2>
+    {{ if .Site.Taxonomies.tags }}
+      <div class="flex flex-wrap gap-3">
+        {{ range .Site.Taxonomies.tags }}
+          <a href="{{ .Page.RelPermalink }}" class="px-4 py-2 bg-surface border border-border text-sm text-secondary rounded-md hover:border-accent transition-colors">{{ .Page.Title | title }}</a>
+        {{ end }}
+      </div>
+    {{ else }}
+      {{ partial "components/empty-state.html" (dict "title" "No topics yet" "subtitle" "Topics appear here once posts are published") }}
+    {{ end }}
+  </div>
+</section>
+{{ end }}

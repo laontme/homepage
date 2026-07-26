@@ -1,0 +1,3 @@
+{{ $text := .text | default "Back" }}
+{{ $href := .href }}
+<a href="{{ $href }}" class="inline-flex items-center gap-1 text-sm text-secondary hover:text-foreground transition-colors"><iconify-icon icon="tabler:arrow-left"></iconify-icon>{{ $text }}</a>

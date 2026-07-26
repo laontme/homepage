@@ -1,0 +1,6 @@
+{{ $title := .title | default "Nothing here yet" }}
+{{ $subtitle := .subtitle | default "Check back soon" }}
+<div class="tech-empty relative py-11 text-center border border-dashed border-border">
+  <p class="text-secondary mb-2">{{ $title }}</p>
+  <p class="text-sm text-secondary opacity-75">{{ $subtitle | safeHTML }}</p>
+</div>
