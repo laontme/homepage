@@ -18,15 +18,16 @@
       <input type="hidden" name="l" value="{{ $lm.list_uuid }}" />
       <label class="sr-only" for="{{ $id }}">Email</label>
       <input id="{{ $id }}" type="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+      <div class="contact-form-footer">
       <button type="submit" class="tech-control inline-flex items-center px-5 py-2.5 bg-marker-bg text-foreground text-sm font-medium border border-marker-soft hover:bg-marker-bg/70 hover:border-marker transition-colors duration-400 cursor-pointer shrink-0">
         Subscribe
       </button>
-    </form>
-    <p class="subscribe-or">or</p>
-    <a href="{{ $rss }}" class="subscribe-rss subscribe-rss-command">
+    <a href="{{ $rss }}" class="subscribe-rss-command">
       <iconify-icon icon="tabler:rss"></iconify-icon>
       <span>Follow via RSS</span>
     </a>
+      </div>
+    </form>
   </div>
 </section>
 {{ end }}

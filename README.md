@@ -67,6 +67,8 @@ The site follows the system light/dark preference. Typography uses Satoshi, DM S
 
 Email updates use a Listmonk subscription form. `/index.xml` remains available as an empty RSS feed while writing is unpublished.
 
+The shared bottom widget combines contact and updates. Contact submits email/message fields directly to self-hosted Formlander using a native HTML POST, with a honeypot and invisible Cloudflare Turnstile protection. Turnstile requires JavaScript; direct email remains available as an alternative. The submission endpoint and public captcha site key are configured in `hugo.toml`. Newsletter subscriptions are a separate form and continue to use Listmonk.
+
 ## License
 
 Code is licensed under [MIT](LICENSE-MIT). Original site content by Stanislav Smirnov is licensed under [Creative Commons Attribution 4.0 International](LICENSE-CC-BY-4.0) ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).

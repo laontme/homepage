@@ -47,11 +47,13 @@
 }
 
 :root {
+  color-scheme: light;
   --color-overlay: #FAF8F3;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    color-scheme: dark;
     --color-background: #0D151C;
     --color-foreground: #E6EBF0;
     --color-secondary: #9DAAB7;
@@ -201,6 +203,16 @@ a.meta-label:focus-visible {
   color: var(--color-accent);
 }
 
+
+.nav-contact {
+  padding: 0.5rem 1rem;
+}
+
+@media (max-width: 767px) {
+  .nav-contact {
+    padding: 0.375rem 0.75rem;
+  }
+}
 
 .tech-control {
   position: relative;
@@ -929,6 +941,124 @@ a.meta-label:focus-visible {
   border: 0;
 }
 
+.contact-section {
+  scroll-margin-top: 7rem;
+}
+
+.contact-widget {
+  display: grid;
+  gap: 3rem;
+}
+
+.contact-form {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1.25rem;
+  max-width: 32rem;
+}
+
+.contact-field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.contact-field label {
+  color: var(--color-secondary);
+  font-size: 0.875rem;
+}
+
+.contact-field input,
+.contact-field textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-background);
+  color: var(--color-foreground);
+  padding: 0.5rem 0.7rem;
+  font: inherit;
+  font-size: 0.875rem;
+}
+
+.contact-field textarea {
+  resize: vertical;
+  min-height: 5.5rem;
+}
+
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+  color: var(--color-tertiary);
+}
+
+.contact-form-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.contact-updates {
+  border-top: 1px solid var(--color-border);
+  padding-top: 2.5rem;
+}
+
+.contact-updates .subscribe-widget {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.5rem;
+}
+
+.contact-updates .subscribe-copy p {
+  font-size: 1rem;
+}
+
+.contact-updates .subscribe-form {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.contact-updates .subscribe-form input[type="email"] {
+  flex: 1 1 auto;
+  width: 100%;
+  background: var(--color-background);
+  padding: 0.5rem 0.7rem;
+  font-size: 0.875rem;
+}
+
+.contact-updates .subscribe-form button {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 900px) {
+  .contact-widget {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .contact-message {
+    padding-right: 3rem;
+  }
+
+  .contact-updates {
+    border-top: 0;
+    border-left: 1px solid var(--color-border);
+    padding-top: 0;
+    padding-left: 3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
 .subscribe-honeypot {
   position: absolute;
   left: -10000px;
@@ -955,26 +1085,6 @@ a.meta-label:focus-visible {
   flex-wrap: nowrap;
   gap: 0.5rem;
   width: 100%;
-}
-
-.subscribe-or {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin: 0.7rem 0 0.28rem;
-  font-family: var(--font-mono), "JetBrains Mono", monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  text-transform: lowercase;
-  color: var(--color-tertiary);
-}
-
-.subscribe-or::before,
-.subscribe-or::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: var(--color-border);
 }
 
 .subscribe-rss {

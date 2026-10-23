@@ -40,6 +40,10 @@ url = "https://listmonk.laont.me"
 list_uuid = "fdcab9ec-b9e0-4678-aa97-26d69f5d8c28"
 list_name = "Updates"
 
+[params.contact]
+action = "https://forms.laont.me/forms/contact/submit?token=7bff716ca305b15b1da1758b79ce62aa6f621a220b6bddac"
+turnstile_site_key = "0x4AAAAAAFi-eGn28bOvyErS"
+
 # [markup]
 
 # [markup.goldmark.renderer]

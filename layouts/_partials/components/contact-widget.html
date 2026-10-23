@@ -1,0 +1,37 @@
+<section id="contact" class="contact-section py-24" aria-labelledby="contact-heading">
+  <div class="max-w-6xl mx-auto px-6 contact-widget">
+    <div class="contact-message">
+      <h2 id="contact-heading" class="font-headline text-3xl md:text-4xl font-bold mb-3">Contact</h2>
+      <p class="text-secondary leading-relaxed">Tell me what you’re working on and where you’re stuck.</p>
+
+      <form class="contact-form" action="{{ site.Params.contact.action }}" method="post" aria-label="Contact">
+        <div hidden aria-hidden="true">
+          <label for="contact-website">Leave this field empty</label>
+          <input id="contact-website" name="__fl_hp" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+        <div class="contact-field">
+          <label for="contact-email" class="sr-only">Your email</label>
+          <input id="contact-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required maxlength="254" />
+        </div>
+        <div class="contact-field">
+          <label for="contact-message" class="sr-only">Message</label>
+          <textarea id="contact-message" name="message" rows="3" placeholder="What are you working on, and where are you stuck?" required maxlength="10000"></textarea>
+        </div>
+        <div class="cf-turnstile" data-sitekey="{{ site.Params.contact.turnstile_site_key }}" data-theme="auto" data-size="flexible"></div>
+        <noscript><p class="text-secondary text-sm">Captcha requires JavaScript. You can also email <a href="mailto:yo@laont.me">yo@laont.me</a> directly.</p></noscript>
+        <div class="contact-form-footer">
+          <button type="submit" class="tech-control inline-flex items-center px-4 py-2 bg-marker-bg text-foreground text-sm font-medium border border-marker-soft">Send message</button>
+          <a class="subscribe-rss-command" href="mailto:yo@laont.me">
+            <iconify-icon icon="ix:mail" aria-hidden="true"></iconify-icon>
+            <span>yo@laont.me</span>
+          </a>
+        </div>
+      </form>
+      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    </div>
+
+    <aside class="contact-updates" aria-label="Subscribe to updates">
+      {{ partial "components/subscribe-widget.html" . }}
+    </aside>
+  </div>
+</section>

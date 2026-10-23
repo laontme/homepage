@@ -10,6 +10,18 @@
   {{ $twitterHandle := "@laontme" }}
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
+  <script>
+    (() => {
+      const preference = window.matchMedia('(prefers-color-scheme: dark)');
+      const declaration = document.querySelector('meta[name="color-scheme"]');
+      const updateColorScheme = () => {
+        declaration.content = preference.matches ? 'dark' : 'light';
+      };
+      updateColorScheme();
+      preference.addEventListener('change', updateColorScheme);
+    })();
+  </script>
   <title>{{ $pageTitle }}</title>
   <meta name="description" content="{{ $pageDescription }}" />
   <meta name="author" content="{{ .Site.Params.author.name }}" />
@@ -42,8 +54,9 @@
 </head>
 <body class="text-foreground font-body antialiased flex flex-col min-h-screen">
   {{ partial "header.html" . }}
-  <main class="pt-[6.25rem] md:pt-16 flex-1 flex flex-col">
+  <main class="alternating-sections pt-16 flex-1 flex flex-col">
     {{ block "main" . }}{{ end }}
+    {{ partial "components/contact-widget.html" . }}
   </main>
   {{ partial "footer.html" . }}
   {{ block "scripts" . }}{{ end }}
