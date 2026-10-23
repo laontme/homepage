@@ -1,0 +1,23 @@
+{{ define "main" }}
+<section class="relative">
+  <div class="max-w-6xl mx-auto px-6 py-24">
+    <div class="mb-6">
+      {{ partial "components/back-link.html" (dict "href" "/work/" "text" "Work") }}
+    </div>
+    <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">{{ .Title }}</h1>
+    <p class="text-xl text-secondary leading-relaxed max-w-2xl">{{ .Description }}</p>
+  </div>
+</section>
+
+<section class="py-24 bg-surface">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="work-list">
+      {{ range sort .Pages "Params.timeline_date" "desc" }}
+        {{ $date := time.AsTime .Params.timeline_date }}
+        {{ partial "components/listing-row.html" (dict "page" . "meta" ($date.Format "Jan 2006")) }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ partial "components/work-topics-section.html" . }}
+{{ end }}

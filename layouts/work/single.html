@@ -1,0 +1,60 @@
+{{ define "main" }}
+{{ $workKey := .File.ContentBaseName }}
+{{ $projects := where .Site.RegularPages "Section" "projects" }}
+{{ $projects = where $projects "Params.related_work" "intersect" (slice $workKey) }}
+{{ $projects = sort $projects "Params.timeline_date" "desc" }}
+{{ $caseStudies := where .Site.RegularPages "Section" "case-studies" }}
+{{ $caseStudies = where $caseStudies "Params.related_work" "intersect" (slice $workKey) }}
+{{ $caseStudies = sort $caseStudies "Params.timeline_date" "desc" }}
+
+<section class="py-24">
+  <article class="max-w-6xl mx-auto px-6">
+    <header class="max-w-3xl">
+      {{ partial "components/back-link.html" (dict "href" "/work/" "text" "Work") }}
+      <h1 class="font-headline text-4xl md:text-5xl font-bold mt-6">{{ .Title }}</h1>
+      {{ with .Params.summary }}
+        <p class="text-xl text-secondary leading-relaxed max-w-3xl mt-4">{{ . }}</p>
+      {{ end }}
+      <div class="mt-5">
+      {{ with .Params.role }}
+          <p class="meta-label">{{ . }}</p>
+      {{ end }}
+        <p class="meta-label mt-2">{{ .Params.period }}</p>
+      </div>
+      {{ partial "components/work-topics.html" . }}
+    </header>
+  </article>
+</section>
+
+{{ with $projects }}
+  <section class="py-24 bg-surface">
+    <div class="max-w-6xl mx-auto px-6">
+      <section aria-labelledby="projects-heading">
+        <h2 id="projects-heading" class="font-headline text-2xl font-semibold mb-6">Projects</h2>
+        <div class="work-list">
+          {{ range . }}
+            {{ $date := time.AsTime .Params.timeline_date }}
+            {{ partial "components/listing-row.html" (dict "page" . "meta" ($date.Format "Jan 2006")) }}
+          {{ end }}
+        </div>
+      </section>
+    </div>
+  </section>
+{{ end }}
+
+{{ with $caseStudies }}
+  <section class="py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <section aria-labelledby="case-studies-heading">
+        <h2 id="case-studies-heading" class="font-headline text-2xl font-semibold mb-6">Stories</h2>
+        <div class="work-list">
+          {{ range . }}
+            {{ $date := time.AsTime .Params.timeline_date }}
+            {{ partial "components/listing-row.html" (dict "page" . "meta" ($date.Format "Jan 2006")) }}
+          {{ end }}
+        </div>
+      </section>
+    </div>
+  </section>
+{{ end }}
+{{ end }}

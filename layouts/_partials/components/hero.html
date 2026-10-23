@@ -1,17 +1,24 @@
 <section class="hero-section">
   <div class="max-w-6xl mx-auto px-6 py-24 md:py-32 relative">
-    <iconify-icon icon="tabler:box-model" class="text-[400px] text-accent absolute pointer-events-none select-none" style="top: 50%; right: calc(1.5rem - 50px); transform: translateY(-50%); opacity: clamp(0.03, 0.03 + 0.17 * (100vw - 430px) / 594px, 0.2); filter: blur(clamp(0px, 3px * (1024px - 100vw) / 594px, 3px));"></iconify-icon>
+    {{ with resources.Get "images/hero-silhouette.png" }}
+      <img src="{{ .RelPermalink }}" alt="" class="hero-silhouette" width="{{ .Width }}" height="{{ .Height }}" />
+    {{ end }}
     <div class="relative z-10 max-w-3xl">
-      <p class="meta-label text-secondary mb-4">TOOLING ENGINEER</p>
+      <div class="flex flex-col gap-4 mb-4">
+        <p class="hero-name text-secondary">Stanislav Smirnov</p>
+        <p class="meta-label text-secondary">BACKEND / INTEGRATIONS / INTERNAL SYSTEMS</p>
+      </div>
       <h1 class="font-headline text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-6">
           Systems over symptoms
       </h1>
-      <p class="text-xl lg:text-2xl text-secondary mb-6">
-          Building tools I wish existed
+      <p class="text-xl lg:text-2xl text-secondary leading-relaxed max-w-2xl mb-8">
+          I take messy backend and integration problems from diagnosis to something shipped.
       </p>
-      <p class="meta-label text-secondary">
-        Based in Tbilisi
-      </p>
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-3">
+        <a href="mailto:yo@laont.me" class="tech-control inline-flex items-center gap-1.5 px-4 py-2 bg-marker-bg text-foreground text-sm font-medium border border-marker-soft hover:bg-marker-bg/70 hover:border-marker transition-colors duration-400">
+          Talk through a problem <iconify-icon icon="tabler:arrow-up-right"></iconify-icon>
+        </a>
+      </div>
     </div>
   </div>
 </section>

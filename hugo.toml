@@ -3,8 +3,26 @@ languageCode = "en-us"
 title = "LAONTME - Systems over symptoms"
 enableRobotsTXT = true
 
+[taxonomies]
+work_topic = "work-topics"
+
+[permalinks.taxonomy]
+work-topics = "/work/topics/"
+
+[permalinks.term]
+work-topics = "/work/topics/:slug/"
+
+[permalinks.page]
+work = "/work/companies/:slug/"
+projects = "/work/projects/:slug/"
+case-studies = "/work/stories/:slug/"
+
+[permalinks.section]
+projects = "/work/projects/"
+case-studies = "/work/stories/"
+
 [params]
-description = "LAONTME — personal system interface of Stanislav Smirnov. Platform engineer building developer tools, agent systems, and open-source software. Based in Tbilisi."
+description = "LAONTME — personal system interface of Stanislav Smirnov. Backend / platform engineer. Production backends, integrations, infrastructure, and agent systems. Based in Tbilisi."
 
 [params.author]
 name = "Stanislav Smirnov"
@@ -13,9 +31,13 @@ email = "yo@laont.me"
 
 [params.social]
 linkedin = "laontme"
-twitter = "laontmeow"
+twitter = "laontme"
 github = "laontme"
 
+[params.listmonk]
+url = "https://listmonk.laont.me"
+list_uuid = "fdcab9ec-b9e0-4678-aa97-26d69f5d8c28"
+list_name = "Updates"
 
 # [markup]
 

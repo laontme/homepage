@@ -1,0 +1,7 @@
+{{ with . }}
+  <ul class="flex flex-wrap gap-x-3 gap-y-1 mt-4">
+    {{ range . }}
+      <li class="meta-label">{{ . }}</li>
+    {{ end }}
+  </ul>
+{{ end }}

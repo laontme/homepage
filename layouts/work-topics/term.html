@@ -1,0 +1,33 @@
+{{ define "main" }}
+<div class="alternating-sections">
+<section class="py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    {{ partial "components/back-link.html" (dict "href" "/work/" "text" "Work") }}
+    <header class="max-w-3xl">
+      <h1 class="font-headline text-4xl md:text-5xl font-bold mt-6 mb-4">{{ .Title }}</h1>
+      <p class="text-xl text-secondary leading-relaxed">{{ .Description | default "Selected work and engineering decisions in this area." }}</p>
+    </header>
+  </div>
+</section>
+{{ $page := . }}
+{{ range slice (dict "section" "case-studies" "title" "Stories") (dict "section" "projects" "title" "Projects") (dict "section" "work" "title" "Companies") }}
+  {{ $title := .title }}
+  {{ $items := where $page.RegularPages "Section" .section }}
+  {{ with $items }}
+    <section class="py-24">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="font-headline text-3xl md:text-4xl font-semibold mb-8">{{ $title }}</h2>
+        <div class="work-list">
+          {{ range sort . "Params.timeline_date" "desc" }}
+            {{ $meta := .Params.period }}
+            {{ with .Params.timeline_date }}{{ $meta = (time.AsTime .).Format "Jan 2006" }}{{ end }}
+            {{ partial "components/listing-row.html" (dict "page" . "meta" $meta "activeTerm" $page.RelPermalink) }}
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+{{ end }}
+{{ partial "components/work-topics-section.html" . }}
+</div>
+{{ end }}

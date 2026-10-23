@@ -26,3 +26,11 @@ Thumbs.db
 *.tmp
 *.temp
 .hugo_build.lock
+
+# Local draft posts (rendered only with hugo -D)
+content/blog/_drafts/
+.local-preservation/
+.frpc.toml
+FRP-HANDOFF.md
+audits/
+result

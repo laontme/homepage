@@ -1,0 +1,16 @@
+{{ $page := .page }}
+{{ $description := .description | default $page.Description | default $page.Params.summary }}
+<article class="listing-entry">
+<a href="{{ $page.RelPermalink }}" class="work-row group">
+  <span class="work-row-title font-headline text-xl font-semibold">
+    {{ $page.Title }}{{ with .suffix }} — {{ . }}{{ end }}
+  </span>
+  {{ with .meta }}
+    <span class="work-row-meta meta-label">{{ . }}</span>
+  {{ end }}
+  {{ with $description }}
+    <span class="work-row-summary text-secondary text-sm">{{ . }}</span>
+  {{ end }}
+</a>
+  {{ partial "components/work-topics.html" (dict "page" $page "activeTerm" .activeTerm) }}
+</article>

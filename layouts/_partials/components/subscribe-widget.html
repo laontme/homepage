@@ -1,0 +1,32 @@
+{{ $lm := site.Params.listmonk }}
+{{ $rss := "" }}
+{{ with site.Home.OutputFormats.Get "RSS" }}
+  {{ $rss = .RelPermalink }}
+{{ else }}
+  {{ $rss = "index.xml" | relURL }}
+{{ end }}
+{{ $id := "subscribe-email" }}
+{{ if and $lm.url $lm.list_uuid }}
+<section class="subscribe-widget">
+  <div class="subscribe-copy">
+    <h2 class="font-headline text-3xl md:text-4xl font-bold mb-2">{{ $lm.list_name | default "Updates" }}</h2>
+    <p class="text-secondary text-lg">Email for the brave. RSS for everyone else. Choose wisely. This decision may be used against you later</p>
+  </div>
+  <div class="subscribe-actions">
+    <form class="subscribe-form" method="post" action="{{ $lm.url }}/subscription/form">
+      <input type="text" name="nonce" class="subscribe-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <input type="hidden" name="l" value="{{ $lm.list_uuid }}" />
+      <label class="sr-only" for="{{ $id }}">Email</label>
+      <input id="{{ $id }}" type="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+      <button type="submit" class="tech-control inline-flex items-center px-5 py-2.5 bg-marker-bg text-foreground text-sm font-medium border border-marker-soft hover:bg-marker-bg/70 hover:border-marker transition-colors duration-400 cursor-pointer shrink-0">
+        Subscribe
+      </button>
+    </form>
+    <p class="subscribe-or">or</p>
+    <a href="{{ $rss }}" class="subscribe-rss subscribe-rss-command">
+      <iconify-icon icon="tabler:rss"></iconify-icon>
+      <span>Follow via RSS</span>
+    </a>
+  </div>
+</section>
+{{ end }}

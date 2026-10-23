@@ -1,15 +1,22 @@
+{{ $section := .Section }}
 <nav class="fixed top-0 left-0 right-0 z-60 bg-background/70 backdrop-blur-md border-b border-border" id="main-nav">
-  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="/" class="font-headline text-xl font-bold tracking-tight flex items-center gap-1">
-      <span class="font-logo font-bold">LAONTME</span>
-    </a>
-
-    <div class="flex items-center gap-4 md:gap-8">
-      <a href="/blog" class="text-sm text-secondary hover:text-foreground transition-colors">Writing</a>
-      <a href="mailto:yo@laont.me" class="tech-control inline-flex items-center gap-1.5 px-4 py-2 bg-marker-bg text-foreground text-sm font-medium border border-marker-soft hover:bg-marker-bg/70 hover:border-marker transition-colors duration-400 cursor-pointer">
-        Say Hi <iconify-icon icon="tabler:arrow-up-right"></iconify-icon>
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="h-16 flex items-center justify-between gap-4">
+      <a href="{{ "/" | relURL }}" class="font-headline text-xl font-bold tracking-tight shrink-0">
+        <span class="font-logo font-bold">LAONTME</span>
       </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="{{ "/work/" | relURL }}" class="text-sm transition-colors {{ if eq $section "work" }}text-foreground{{ else }}text-secondary hover:text-foreground{{ end }}" {{ if eq $section "work" }}aria-current="page"{{ end }}>Work</a>
+        <a href="mailto:yo@laont.me" class="tech-control inline-flex items-center gap-1.5 px-4 py-2 bg-marker-bg text-foreground text-sm font-medium border border-marker-soft hover:bg-marker-bg/70 hover:border-marker transition-colors duration-400 cursor-pointer">
+          Contact <iconify-icon icon="tabler:arrow-up-right"></iconify-icon>
+        </a>
+      </div>
     </div>
 
+    <div class="flex md:hidden items-center gap-5 pb-3 -mt-1">
+      <a href="{{ "/work/" | relURL }}" class="text-sm transition-colors {{ if eq $section "work" }}text-foreground{{ else }}text-secondary hover:text-foreground{{ end }}" {{ if eq $section "work" }}aria-current="page"{{ end }}>Work</a>
+      <a href="mailto:yo@laont.me" class="text-sm text-foreground">Contact</a>
+    </div>
   </div>
 </nav>

@@ -1,0 +1,10 @@
+{{ $current := .RelPermalink }}
+{{ with index .Site.Taxonomies "work-topics" }}
+<nav class="post-terms" aria-label="Browse work by topic">
+  {{ range .Alphabetical }}
+    {{ if ne .Page.RelPermalink $current }}
+    <a class="post-term{{ if eq .Page.RelPermalink $current }} post-term-active{{ end }}" href="{{ .Page.RelPermalink }}"{{ if eq .Page.RelPermalink $current }} aria-current="page"{{ end }}>{{ .Page.Title }} <span class="text-tertiary">{{ .Count }}</span></a>
+    {{ end }}
+  {{ end }}
+</nav>
+{{ end }}

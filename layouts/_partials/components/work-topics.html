@@ -1,0 +1,11 @@
+{{ $page := . }}
+{{ $active := "" }}
+{{ if reflect.IsMap . }}{{ $page = .page }}{{ $active = .activeTerm | default "" }}{{ end }}
+{{ with $page.GetTerms "work-topics" }}
+<nav class="post-terms" aria-label="Work topics">
+  {{ $topics := union (where . "RelPermalink" $active) (where . "RelPermalink" "ne" $active) }}
+  {{ range $topics }}
+    <a class="post-term{{ if eq .RelPermalink $active }} post-term-active{{ end }}" href="{{ .RelPermalink }}"{{ if eq .RelPermalink $active }} aria-current="page"{{ end }}>{{ .Title }}</a>
+  {{ end }}
+</nav>
+{{ end }}

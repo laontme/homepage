@@ -1,0 +1,133 @@
+{{ $work := where .Site.RegularPages "Section" "work" }}
+{{ $projects := where .Site.RegularPages "Section" "projects" }}
+{{ $caseStudies := where .Site.RegularPages "Section" "case-studies" }}
+{{ $work = where $work "Params.timeline_date" "ne" nil }}
+{{ $work = sort $work "Params.timeline_date" "desc" }}
+
+{{ if $work }}
+  <section id="trajectory" class="trajectory-section py-24 md:py-32 bg-surface">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col gap-3 mb-10 md:flex-row md:items-center md:justify-between">
+        <div class="max-w-2xl">
+          <h2 class="font-headline text-3xl md:text-4xl font-bold mb-3">Work</h2>
+          <p class="text-secondary text-lg">Selected work from 2022 → today</p>
+        </div>
+        <nav class="trajectory-view-tabs" aria-label="Work views">
+          <a href="{{ "/work/projects/" | relURL }}" class="trajectory-view-tab">Projects <span>{{ len $projects }}</span></a>
+          <a href="{{ "/work/stories/" | relURL }}" class="trajectory-view-tab">Stories <span>{{ len $caseStudies }}</span></a>
+        </nav>
+      </div>
+
+      <div class="trajectory-viewport" role="region" aria-label="Selected career trajectory">
+        <ol class="trajectory-track">
+          {{ range $work }}
+            {{ $company := . }}
+            {{ $companyKey := $company.File.ContentBaseName }}
+            {{ $companyProjects := where $projects "Params.related_work" "intersect" (slice $companyKey) }}
+            {{ $companyCases := where $caseStudies "Params.related_work" "intersect" (slice $companyKey) }}
+            {{ $companyItems := union $companyProjects $companyCases }}
+            {{ $companyItems = where $companyItems "Params.timeline_date" "ne" nil }}
+            {{ $companyItems = sort $companyItems "Params.timeline_date" "desc" }}
+            <li class="trajectory-era">
+              <a href="{{ $company.RelPermalink }}" class="trajectory-era-marker group">
+                <span class="flex flex-col gap-1">
+                  <span class="meta-label text-accent inline-flex items-center gap-2"><span class="trajectory-era-node" aria-hidden="true"></span>{{ $company.Params.period }}</span>
+                  <span class="font-headline font-bold text-lg group-hover:text-accent transition-colors">{{ $company.Title }}{{ with $company.Params.role }} <span class="font-normal text-secondary">— {{ . }}</span>{{ end }}</span>
+                </span>
+              </a>
+              <div class="trajectory-era-cards">
+                {{ range $companyItems }}
+                  {{ partial "components/trajectory-card.html" . }}
+                {{ end }}
+              </div>
+            </li>
+          {{ end }}
+        </ol>
+      </div>
+
+      <div class="trajectory-axis" aria-hidden="true">
+        <span data-today="true" data-label="Today"></span>
+        <span data-year="2026" data-label="2026"></span>
+        <span data-year="2025" data-label="2025"></span>
+        <span data-year="2024" data-label="2024"></span>
+        <span data-year="2023" data-label="2023"></span>
+        <span data-year="2022" data-label="2022"></span>
+      </div>
+
+    </div>
+  </section>
+  <script>
+    (() => {
+      const viewport = document.querySelector(".trajectory-viewport");
+      if (!viewport) return;
+      const section = viewport.closest(".trajectory-section");
+      const yearMarkers = [...(section?.querySelectorAll(".trajectory-axis [data-year]") || [])];
+      const todayMarker = section?.querySelector(".trajectory-axis [data-today]");
+
+      let pointerId = null;
+      let startX = 0;
+      let startScrollLeft = 0;
+      let dragged = false;
+      let suppressClick = false;
+
+      const updateProgress = () => {
+        const distance = viewport.scrollWidth - viewport.clientWidth;
+        const progress = distance > 0 ? viewport.scrollLeft / distance : 0;
+        section?.style.setProperty("--trajectory-progress", `${Math.min(100, Math.max(0, progress * 100))}%`);
+        const activeYear = 2026 - progress * 4;
+        yearMarkers.forEach((marker) => {
+          marker.classList.toggle("is-active", Number(marker.dataset.year) >= activeYear - 0.01);
+        });
+        todayMarker?.classList.add("is-active");
+      };
+
+      updateProgress();
+      viewport.addEventListener("scroll", updateProgress, { passive: true });
+      viewport.addEventListener("dragstart", (event) => event.preventDefault());
+
+      viewport.addEventListener("pointerdown", (event) => {
+        if (event.pointerType === "touch" || event.button !== 0) return;
+
+        pointerId = event.pointerId;
+        startX = event.clientX;
+        startScrollLeft = viewport.scrollLeft;
+        dragged = false;
+      });
+
+      viewport.addEventListener("pointermove", (event) => {
+        if (event.pointerId !== pointerId) return;
+
+        const distance = event.clientX - startX;
+        if (Math.abs(distance) > 4) {
+          if (!dragged) {
+            viewport.setPointerCapture(pointerId);
+            viewport.classList.add("is-dragging");
+          }
+          dragged = true;
+          event.preventDefault();
+        }
+        viewport.scrollLeft = startScrollLeft - distance;
+      });
+
+      const stopDragging = (event) => {
+        if (event.pointerId !== pointerId) return;
+
+        if (viewport.hasPointerCapture(pointerId)) viewport.releasePointerCapture(pointerId);
+        pointerId = null;
+        viewport.classList.remove("is-dragging");
+        suppressClick = dragged;
+        if (dragged) event.preventDefault();
+      };
+
+      viewport.addEventListener("pointerup", stopDragging);
+      viewport.addEventListener("pointercancel", stopDragging);
+      viewport.addEventListener("click", (event) => {
+        if (!suppressClick) return;
+
+        event.preventDefault();
+        event.stopPropagation();
+        suppressClick = false;
+      }, true);
+    })();
+  </script>
+{{ end }}

@@ -1,10 +1,10 @@
 default: dev
 
 dev:
-    hugo server -w
+    hugo server -w --disableFastRender
 
 build:
-    hugo --minify
+    hugo --minify --cleanDestinationDir
 
 clean:
     rm -rf public resources .hugo_build.lock

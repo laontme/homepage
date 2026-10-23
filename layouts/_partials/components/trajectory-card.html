@@ -1,0 +1,15 @@
+{{ $kind := "PROJECT" }}
+{{ if eq .Section "case-studies" }}
+  {{ $kind = "STORY" }}
+{{ end }}
+{{ $date := time.AsTime .Params.timeline_date }}
+<a href="{{ .RelPermalink }}" class="trajectory-card group">
+  <div class="flex items-center justify-between gap-3 mb-8">
+    <span class="meta-label text-accent">{{ $kind }}</span>
+    <time datetime="{{ $date.Format "2006-01-02" }}" class="meta-label text-tertiary">{{ $date.Format "Jan 2006" }}</time>
+  </div>
+  <h3 class="font-headline text-xl font-bold leading-tight mb-3">{{ .Title }}</h3>
+  {{ with .Params.timeline_summary | default .Params.summary }}<p class="text-secondary text-sm leading-relaxed">{{ . }}</p>{{ end }}
+  {{ with .Params.evidence | default .Params.timeline_detail }}<p class="meta-label text-secondary mt-4">{{ . }}</p>{{ end }}
+  <span class="trajectory-card-link inline-flex text-sm font-medium text-accent mt-auto pt-6">Open</span>
+</a>

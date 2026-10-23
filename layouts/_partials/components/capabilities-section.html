@@ -1,0 +1,54 @@
+<section class="capabilities-section py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="capabilities-heading">
+      <h2 class="font-headline text-3xl md:text-4xl font-bold">What I can help with</h2>
+      <p class="text-secondary text-lg leading-relaxed">Bring the problem before it has a neat brief.</p>
+    </div>
+
+    <ol class="capabilities-list">
+      <li class="capability-item">
+        <span class="capability-number" aria-hidden="true">01</span>
+        <h3 class="font-headline text-2xl font-bold mb-3">Untangle</h3>
+        <p class="capability-outcome">Find the real problem.</p>
+        <p class="text-secondary leading-relaxed">Trace failing integrations and find where systems disagree about state.</p>
+      </li>
+      <li class="capability-item">
+        <span class="capability-number" aria-hidden="true">02</span>
+        <h3 class="font-headline text-2xl font-bold mb-3">Build</h3>
+        <p class="capability-outcome">Make the fix structural.</p>
+        <p class="text-secondary leading-relaxed">Fix the underlying backend or replace a manual workflow with a system.</p>
+      </li>
+      <li class="capability-item">
+        <span class="capability-number" aria-hidden="true">03</span>
+        <h3 class="font-headline text-2xl font-bold mb-3">Own</h3>
+        <p class="capability-outcome">Carry it to production.</p>
+        <p class="text-secondary leading-relaxed">Follow through until it’s shipped and working in real use.</p>
+      </li>
+    </ol>
+
+  </div>
+</section>
+<script>
+  (() => {
+    const section = document.querySelector('.capabilities-section');
+    const rail = section?.querySelector('.capabilities-list');
+    if (!rail) return;
+    const stages = [...rail.children];
+    section.addEventListener('pointermove', (event) => {
+      if (event.pointerType === 'touch' || !matchMedia('(min-width: 768px)').matches) return;
+      const bounds = rail.getBoundingClientRect();
+      const railLeft = bounds.left + bounds.width / 2 - innerWidth / 2;
+      rail.style.setProperty('--rail-cursor', `${event.clientX - railLeft}px`);
+      rail.style.setProperty('--rail-active', '1');
+      stages.forEach((stage) => {
+        const nodeX = stage.getBoundingClientRect().left + 5;
+        const proximity = Math.max(0, 1 - Math.abs(event.clientX - nodeX) / 260);
+        stage.style.setProperty('--node-proximity', proximity.toFixed(3));
+      });
+    });
+    section.addEventListener('pointerleave', () => {
+      rail.style.setProperty('--rail-active', '0');
+      stages.forEach((stage) => stage.style.setProperty('--node-proximity', '0'));
+    });
+  })();
+</script>

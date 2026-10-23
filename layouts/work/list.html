@@ -1,0 +1,87 @@
+{{ define "main" }}
+{{ $companies := where .Site.RegularPages "Section" "work" }}
+{{ $projects := where .Site.RegularPages "Section" "projects" }}
+{{ $caseStudies := where .Site.RegularPages "Section" "case-studies" }}
+{{ $projectsIndex := .Site.GetPage "/projects" }}
+{{ $caseStudiesIndex := .Site.GetPage "/case-studies" }}
+{{ $companies = sort $companies "Params.timeline_date" "desc" }}
+{{ $projects = sort $projects "Params.timeline_date" "desc" }}
+{{ $caseStudies = sort $caseStudies "Params.timeline_date" "desc" }}
+
+<section class="relative">
+  <div class="max-w-6xl mx-auto px-6 py-24">
+    <div class="mb-6">
+      {{ partial "components/back-link.html" (dict "href" "/" "text" "Home") }}
+    </div>
+    <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+      {{ .Title }}
+    </h1>
+    <p class="text-xl text-secondary leading-relaxed max-w-2xl">
+      {{ .Description }}
+    </p>
+  </div>
+</section>
+
+{{ with $caseStudies }}
+  <section class="py-24 bg-surface">
+    <div class="max-w-6xl mx-auto px-6">
+      <section aria-labelledby="case-studies-heading">
+        <h2 id="case-studies-heading" class="font-headline text-3xl md:text-4xl font-semibold mb-3">Stories</h2>
+        {{ with $caseStudiesIndex }}
+          <p class="text-lg text-secondary leading-relaxed max-w-2xl mb-8">{{ .Description }}</p>
+        {{ end }}
+        <div class="work-list">
+          {{ range . }}
+            {{ $date := time.AsTime .Params.timeline_date }}
+            {{ partial "components/listing-row.html" (dict "page" . "meta" ($date.Format "Jan 2006")) }}
+          {{ end }}
+        </div>
+      </section>
+    </div>
+  </section>
+{{ end }}
+
+{{ with $projects }}
+  <section class="py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <section aria-labelledby="projects-heading">
+        <h2 id="projects-heading" class="font-headline text-3xl md:text-4xl font-semibold mb-3">Projects</h2>
+        {{ with $projectsIndex }}
+          <p class="text-lg text-secondary leading-relaxed max-w-2xl mb-8">{{ .Description }}</p>
+        {{ end }}
+        <div class="work-list">
+          {{ range . }}
+            {{ $date := time.AsTime .Params.timeline_date }}
+            {{ partial "components/listing-row.html" (dict "page" . "meta" ($date.Format "Jan 2006")) }}
+          {{ end }}
+        </div>
+      </section>
+    </div>
+  </section>
+{{ end }}
+
+{{ with $companies }}
+  <section class="py-24 bg-surface">
+    <div class="max-w-6xl mx-auto px-6">
+      <section aria-labelledby="companies-heading">
+        <h2 id="companies-heading" class="font-headline text-3xl md:text-4xl font-semibold mb-3">Companies</h2>
+        <p class="text-lg text-secondary leading-relaxed max-w-2xl mb-8">{{ $.Params.companies_description }}</p>
+        <div class="work-list">
+          {{ range . }}
+            {{ partial "components/listing-row.html" (dict "page" . "suffix" .Params.role "meta" .Params.period) }}
+          {{ end }}
+        </div>
+      </section>
+    </div>
+  </section>
+{{ end }}
+
+{{ if not (or $companies (or $projects $caseStudies)) }}
+  <section class="py-24 bg-surface">
+    <div class="max-w-6xl mx-auto px-6">
+      {{ partial "components/empty-state.html" (dict "title" "Nothing listed yet") }}
+    </div>
+  </section>
+{{ end }}
+{{ partial "components/work-topics-section.html" . }}
+{{ end }}

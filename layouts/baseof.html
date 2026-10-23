@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}">
 <head>
+  {{ $siteName := "LAONTME" }}
+  {{ $siteDescription := .Site.Params.description }}
+  {{ $pageDescription := .Description | default $siteDescription }}
+  {{ with .Params.summary }}{{ $pageDescription = . }}{{ end }}
+  {{ $pageTitle := cond .IsHome .Site.Title (printf "%s — %s" .Title $siteName) }}
+  {{ $ogType := cond .IsPage "article" "website" }}
+  {{ $twitterHandle := "@laontme" }}
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ if .IsHome }}LAONTME - Systems over symptoms{{ else }}{{ .Title }} · LAONTME{{ end }}</title>
-  <meta name="description" content="{{ .Description | default .Site.Params.description }}" />
+  <title>{{ $pageTitle }}</title>
+  <meta name="description" content="{{ $pageDescription }}" />
+  <meta name="author" content="{{ .Site.Params.author.name }}" />
+  <link rel="canonical" href="{{ .Permalink }}" />
+
+  <meta property="og:type" content="{{ $ogType }}" />
+  <meta property="og:site_name" content="{{ $siteName }}" />
+  <meta property="og:title" content="{{ $pageTitle }}" />
+  <meta property="og:description" content="{{ $pageDescription }}" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+  {{ if .IsPage }}
+    {{ with .PublishDate }}<meta property="article:published_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}" />{{ end }}
+    {{ with .Lastmod }}<meta property="article:modified_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}" />{{ end }}
+  {{ end }}
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="{{ $twitterHandle }}" />
+  <meta name="twitter:creator" content="{{ $twitterHandle }}" />
+  <meta name="twitter:title" content="{{ $pageTitle }}" />
+  <meta name="twitter:description" content="{{ $pageDescription }}" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
@@ -17,7 +42,7 @@
 </head>
 <body class="text-foreground font-body antialiased flex flex-col min-h-screen">
   {{ partial "header.html" . }}
-  <main class="pt-16 flex-1 flex flex-col">
+  <main class="pt-[6.25rem] md:pt-16 flex-1 flex flex-col">
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}

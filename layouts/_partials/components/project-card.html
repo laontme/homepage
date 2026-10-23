@@ -1,0 +1,9 @@
+<a href="{{ .RelPermalink }}" class="tech-card group block p-6 border border-border hover:border-accent transition-all duration-200 hover:shadow-[var(--shadow-soft-hover)] hover:-translate-y-0.5">
+  <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-4">
+    <span class="meta-label text-accent">PROJECT</span>
+    {{ with .Params.status }}<span class="meta-label text-secondary">{{ . }}</span>{{ end }}
+  </div>
+  <h3 class="font-headline text-xl font-bold mb-3">{{ .Title }}</h3>
+  {{ with .Params.summary }}<p class="text-secondary leading-relaxed">{{ . }}</p>{{ end }}
+  <span class="inline-flex text-sm font-medium text-accent group-hover:underline mt-6">View project</span>
+</a>

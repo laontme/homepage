@@ -1,0 +1,36 @@
+{{ $site := .Site }}
+{{ $hasRelated := or .Params.related_work (or .Params.related_projects .Params.related_case_studies) }}
+{{ if $hasRelated }}
+  <aside class="mt-12 pt-8 border-t border-border" aria-labelledby="related-heading">
+    <h2 id="related-heading" class="meta-label text-secondary mb-4">RELATED</h2>
+    <div class="flex flex-wrap gap-3">
+      {{ with .Params.related_work }}
+        {{ range . }}
+          {{ with $site.GetPage (printf "/work/%s" .) }}
+            <a href="{{ .RelPermalink }}" class="tech-control inline-flex items-center gap-1.5 px-3 py-2 text-sm border border-border text-secondary hover:text-foreground hover:border-accent transition-colors">
+              Work: {{ .Title }} <iconify-icon icon="tabler:arrow-up-right"></iconify-icon>
+            </a>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ with .Params.related_projects }}
+        {{ range . }}
+          {{ with $site.GetPage (printf "/projects/%s" .) }}
+            <a href="{{ .RelPermalink }}" class="tech-control inline-flex items-center gap-1.5 px-3 py-2 text-sm border border-border text-secondary hover:text-foreground hover:border-accent transition-colors">
+              Project: {{ .Title }} <iconify-icon icon="tabler:arrow-up-right"></iconify-icon>
+            </a>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ with .Params.related_case_studies }}
+        {{ range . }}
+          {{ with $site.GetPage (printf "/case-studies/%s" .) }}
+            <a href="{{ .RelPermalink }}" class="tech-control inline-flex items-center gap-1.5 px-3 py-2 text-sm border border-border text-secondary hover:text-foreground hover:border-accent transition-colors">
+              Story: {{ .Title }} <iconify-icon icon="tabler:arrow-right"></iconify-icon>
+            </a>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </div>
+  </aside>
+{{ end }}
