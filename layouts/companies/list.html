@@ -1,9 +1,9 @@
 {{ define "main" }}
-{{ $companies := where .Site.RegularPages "Section" "work" }}
+{{ $companies := where .Site.RegularPages "Section" "companies" }}
 {{ $projects := where .Site.RegularPages "Section" "projects" }}
-{{ $caseStudies := where .Site.RegularPages "Section" "case-studies" }}
+{{ $caseStudies := where .Site.RegularPages "Section" "stories" }}
 {{ $projectsIndex := .Site.GetPage "/projects" }}
-{{ $caseStudiesIndex := .Site.GetPage "/case-studies" }}
+{{ $caseStudiesIndex := .Site.GetPage "/stories" }}
 {{ $companies = sort $companies "Params.timeline_date" "desc" }}
 {{ $projects = sort $projects "Params.timeline_date" "desc" }}
 {{ $caseStudies = sort $caseStudies "Params.timeline_date" "desc" }}
@@ -83,5 +83,5 @@
     </div>
   </section>
 {{ end }}
-{{ partial "components/work-topics-section.html" . }}
+{{ partial "components/topics-section.html" . }}
 {{ end }}

@@ -1,6 +1,6 @@
-{{ $work := where .Site.RegularPages "Section" "work" }}
+{{ $work := where .Site.RegularPages "Section" "companies" }}
 {{ $projects := where .Site.RegularPages "Section" "projects" }}
-{{ $caseStudies := where .Site.RegularPages "Section" "case-studies" }}
+{{ $caseStudies := where .Site.RegularPages "Section" "stories" }}
 {{ $work = where $work "Params.timeline_date" "ne" nil }}
 {{ $work = sort $work "Params.timeline_date" "desc" }}
 

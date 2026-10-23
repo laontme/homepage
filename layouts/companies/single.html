@@ -3,7 +3,7 @@
 {{ $projects := where .Site.RegularPages "Section" "projects" }}
 {{ $projects = where $projects "Params.related_work" "intersect" (slice $workKey) }}
 {{ $projects = sort $projects "Params.timeline_date" "desc" }}
-{{ $caseStudies := where .Site.RegularPages "Section" "case-studies" }}
+{{ $caseStudies := where .Site.RegularPages "Section" "stories" }}
 {{ $caseStudies = where $caseStudies "Params.related_work" "intersect" (slice $workKey) }}
 {{ $caseStudies = sort $caseStudies "Params.timeline_date" "desc" }}
 
@@ -21,8 +21,9 @@
       {{ end }}
         <p class="meta-label mt-2">{{ .Params.period }}</p>
       </div>
-      {{ partial "components/work-topics.html" . }}
+      {{ partial "components/topics.html" . }}
     </header>
+    {{ partial "components/content-license.html" . }}
   </article>
 </section>
 

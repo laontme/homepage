@@ -6,7 +6,7 @@ draft: false
 timeline_date: 2023-06-01
 timeline_summary: Sharp product detail without slowing the initial image load.
 timeline_detail: imgproxy, CDN caching, staged loading
-work-topics: [performance, image-delivery, infrastructure]
+topics: [performance, image-delivery, infrastructure]
 status: Image delivery
 stack:
   - imgproxy

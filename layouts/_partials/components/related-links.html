@@ -6,7 +6,7 @@
     <div class="flex flex-wrap gap-3">
       {{ with .Params.related_work }}
         {{ range . }}
-          {{ with $site.GetPage (printf "/work/%s" .) }}
+          {{ with $site.GetPage (printf "/companies/%s" .) }}
             <a href="{{ .RelPermalink }}" class="tech-control inline-flex items-center gap-1.5 px-3 py-2 text-sm border border-border text-secondary hover:text-foreground hover:border-accent transition-colors">
               Work: {{ .Title }} <iconify-icon icon="tabler:arrow-up-right"></iconify-icon>
             </a>
@@ -24,7 +24,7 @@
       {{ end }}
       {{ with .Params.related_case_studies }}
         {{ range . }}
-          {{ with $site.GetPage (printf "/case-studies/%s" .) }}
+          {{ with $site.GetPage (printf "/stories/%s" .) }}
             <a href="{{ .RelPermalink }}" class="tech-control inline-flex items-center gap-1.5 px-3 py-2 text-sm border border-border text-secondary hover:text-foreground hover:border-accent transition-colors">
               Story: {{ .Title }} <iconify-icon icon="tabler:arrow-right"></iconify-icon>
             </a>

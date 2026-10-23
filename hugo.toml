@@ -4,22 +4,23 @@ title = "LAONTME - Systems over symptoms"
 enableRobotsTXT = true
 
 [taxonomies]
-work_topic = "work-topics"
+topic = "topics"
 
 [permalinks.taxonomy]
-work-topics = "/work/topics/"
+topics = "/work/topics/"
 
 [permalinks.term]
-work-topics = "/work/topics/:slug/"
+topics = "/work/topics/:slug/"
 
 [permalinks.page]
-work = "/work/companies/:slug/"
+companies = "/work/companies/:slug/"
 projects = "/work/projects/:slug/"
-case-studies = "/work/stories/:slug/"
+stories = "/work/stories/:slug/"
 
 [permalinks.section]
+companies = "/work/"
 projects = "/work/projects/"
-case-studies = "/work/stories/"
+stories = "/work/stories/"
 
 [params]
 description = "LAONTME — personal system interface of Stanislav Smirnov. Backend / platform engineer. Production backends, integrations, infrastructure, and agent systems. Based in Tbilisi."

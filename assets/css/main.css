@@ -580,6 +580,21 @@ a.meta-label:focus-visible {
   font-size: 0.68rem;
 }
 
+.content-license {
+  max-width: 48rem;
+  line-height: 1.7;
+}
+
+.content-license a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--color-border);
+}
+
+.content-license a:hover {
+  color: var(--color-accent);
+}
+
 .hero-name {
   font-family: var(--font-headline);
   font-size: clamp(1.25rem, 2vw, 1.75rem);

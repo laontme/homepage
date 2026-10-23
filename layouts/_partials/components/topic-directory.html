@@ -1,5 +1,5 @@
 {{ $current := .RelPermalink }}
-{{ with index .Site.Taxonomies "work-topics" }}
+{{ with index .Site.Taxonomies "topics" }}
 <nav class="post-terms" aria-label="Browse work by topic">
   {{ range .Alphabetical }}
     {{ if ne .Page.RelPermalink $current }}

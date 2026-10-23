@@ -5,7 +5,7 @@ title: Checkout and fulfilment across an international store
 summary: Making payment, shipping, inventory, customer communication, and deployment agree in a small commerce product.
 status: Commerce systems · Laravel
 weight: 3
-work-topics: [integrations, reliability, commerce]
+topics: [integrations, reliability, commerce]
 timeline_date: 2022-10-15
 stack:
   - Laravel

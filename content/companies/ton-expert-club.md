@@ -1,6 +1,6 @@
 ---
 title: TON Expert Club
-work-topics: [integrations, backend-architecture, reliability, infrastructure]
+topics: [integrations, backend-architecture, reliability, infrastructure]
 role: Co-founder, Technical Lead
 org: TON Expert Club
 period: Apr 2024 – Aug 2025

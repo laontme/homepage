@@ -12,7 +12,7 @@
       </a>
     </div>
     <ol class="work-trajectory">
-      {{ with .Site.GetPage "work" }}
+      {{ with .Site.GetPage "companies" }}
         {{ range .Pages.ByWeight }}
           {{ if ne .Params.featured false }}
             <li>

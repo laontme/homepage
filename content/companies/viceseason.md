@@ -1,6 +1,6 @@
 ---
 title: Viceseason
-work-topics: [commerce, integrations, reliability, infrastructure]
+topics: [commerce, integrations, reliability, infrastructure]
 role: Full-stack Developer
 org: Viceseason
 period: Oct 2022 – 2026

@@ -1,7 +1,17 @@
-Copyright (c) 2026 Stanislav Smirnov
+# Licensing
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Copyright (c) 2026 Stanislav Smirnov.
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+This repository contains code and content under separate licenses:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+- Code is licensed under the MIT License in LICENSE-MIT. This includes Hugo templates, HTML structure, CSS, JavaScript, archetype scaffolding, configuration, and build tooling.
+- Original site content by Stanislav Smirnov is licensed under Creative Commons Attribution 4.0 International (CC BY 4.0), in LICENSE-CC-BY-4.0: https://creativecommons.org/licenses/by/4.0/. This includes prose and editorial metadata in content/, original reader-facing copy embedded in templates, README documentation, and original images or illustrations owned by Stanislav Smirnov.
+- Source-code examples embedded in content or documentation are also available under MIT.
+- Third-party code, fonts, images, quotations, and other material retain their respective licenses or permissions. These licenses grant only rights held by Stanislav Smirnov and do not relicense third-party material.
+- Trademark, privacy, and publicity rights are not granted by CC BY 4.0. Reuse must not imply endorsement.
+
+For content attribution, credit “Stanislav Smirnov (yo@laont.me)”, link to the original page at https://laont.me/ and to CC BY 4.0, retain applicable notices, and indicate modifications as required by the license. A reasonable attribution example:
+
+“[Page title]” by Stanislav Smirnov (yo@laont.me), [original page URL], licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). [Describe changes, if any.]
+
+This notice identifies the scope of each license; the license texts govern their respective material. It does not withdraw permissions previously granted for earlier versions.

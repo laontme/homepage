@@ -1,71 +1,76 @@
-# Laon - Reproducible Platform Engineer Website
+# LAONTME
 
-A pure static Hugo site with Tailwind CSS v4. No Node.js required.
+Source for [laont.me](https://laont.me/), Stanislav Smirnov’s personal website. Built with Hugo, Tailwind CSS v4, and a pinned Nix development environment. No Node.js required.
 
-## Quick Start
+## Local development
 
-```bash
+```sh
 nix develop
 just dev
 ```
 
-Dev server available at http://localhost:1313
+The preview runs at <http://localhost:1313/> and rebuilds on changes. Draft content is excluded by default.
+
+## Build
+
+```sh
+nix develop -c just build
+```
+
+The production site is written to `public/`. The build clears stale output files.
+
+To build the site as a Nix package:
+
+```sh
+nix build
+```
+
+The output is available through `result/`.
 
 ## Commands
 
-```bash
-just dev      # Hugo server + Tailwind watch
-just build    # Production build
-just serve    # Hugo server only
-just clean    # Clean build artifacts
-```
+| Command | Purpose |
+| --- | --- |
+| `just dev` | Run the Hugo preview with live rebuilding |
+| `just build` | Build the production site |
+| `just clean` | Remove generated build artifacts |
 
-## Project Structure
+For a different preview port, run `hugo server --port 1314 --disableFastRender` inside the development shell.
 
-```
-├── assets/css/main.css    # Tailwind input CSS with @theme variables
-├── content/              # Hugo content files
-├── layouts/              # Hugo templates
-│   ├── index.html        # Home layout
-│   ├── _default/         # Base templates
-│   └── partials/         # Reusable partials + components
-├── static/               # Static files (404, archive)
-├── flake.nix             # Nix flake with dev shell
-├── hugo.toml             # Hugo configuration
-└── justfile              # Dev commands
-```
+## Content and URLs
 
-## Tailwind CSS
+| Source | Public URL |
+| --- | --- |
+| `content/_index.md` | `/` |
+| `content/companies/_index.md` | `/work/` |
+| `content/companies/` | `/work/companies/<slug>/` |
+| `content/projects/` | `/work/projects/<slug>/` |
+| `content/stories/` | `/work/stories/<slug>/` |
+| `content/topics/` | `/work/topics/<slug>/` |
 
-Theme variables in `assets/css/main.css`:
-- Colors: `flixie-bg`, `flixie-surface`, `flixie-accent`, etc.
-- Fonts: `headline` (Satoshi), `body` (DM Sans), `mono` (JetBrains Mono)
+Companies describe roles, projects describe products, and stories describe specific engineering contributions. The `topics` front-matter field groups relevant companies, projects, and stories into shared topic pages. Relations between entries use `related_work`, `related_projects`, and `related_case_studies` with content filename stems.
 
-## Nix Flake Dev Shell
+The homepage timeline uses `timeline_date`, `timeline_summary`, and `timeline_detail`; an optional `evidence` field supplies supporting figures. Entries marked `draft: true` are excluded from normal builds.
 
-```nix
-packages = with pkgs; [
-  go_1_25
-  hugo
-  just
-  tailwindcss_4
-];
-```
+## Layout and styling
 
-## Troubleshooting
+- `layouts/home.html`: homepage composition.
+- `layouts/baseof.html`: shared document structure and metadata.
+- `layouts/_partials/`: navigation, footer, and reusable components.
+- `layouts/companies/`, `layouts/projects/`, `layouts/stories/`: work pages and listings.
+- `layouts/topics/`: topic pages.
+- `assets/css/main.css`: Tailwind input, theme tokens, and component styles.
+- `assets/images/`: image assets processed by Hugo.
+- `hugo.toml`: site configuration, URL structure, and subscription settings.
 
-### Port already in use
+The site follows the system light/dark preference. Typography uses Satoshi, DM Sans, JetBrains Mono, and Space Grotesk. Small inline scripts handle timeline dragging and the cursor-reactive capability rail.
 
-```bash
-just serve -- --port 1314
-```
+Email updates use a Listmonk subscription form. `/index.xml` remains available as an empty RSS feed while writing is unpublished.
 
+## License
 
+Code is licensed under [MIT](LICENSE-MIT). Original site content by Stanislav Smirnov is licensed under [Creative Commons Attribution 4.0 International](LICENSE-CC-BY-4.0) ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).
 
+Content includes prose and editorial metadata in `content/`, original reader-facing copy in templates, this documentation, and original images or illustrations owned by the author. Template structure, CSS, JavaScript, configuration, and build tooling remain MIT. Code examples in content and documentation are also available under MIT. Third-party material retains its own licenses or permissions.
 
-
- CCC   IIIII   We implement Nix flakes
-C   C    I     it's not flaky anymore
-
-CICI   We implement Nix flakes
-CICI   it's not flaky anymore
+When sharing content, credit **Stanislav Smirnov (yo@laont.me)**, link to the original page and CC BY 4.0, retain applicable notices, and indicate modifications. Individual content pages display this notice; home and listing pages do not. See [LICENSE](LICENSE) for the full scope and an attribution example.

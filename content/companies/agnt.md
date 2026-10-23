@@ -1,6 +1,6 @@
 ---
 title: AGNT
-work-topics: [agent-systems, integrations, infrastructure]
+topics: [agent-systems, integrations, infrastructure]
 role: Founding Engineer
 org: AGNT
 period: Mar 2026 – Aug 2026

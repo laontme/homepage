@@ -1,8 +1,8 @@
-{{ with index .Site.Taxonomies "work-topics" }}
+{{ with index .Site.Taxonomies "topics" }}
 <section class="py-24">
   <div class="max-w-6xl mx-auto px-6">
     <h2 class="font-headline text-3xl md:text-4xl font-semibold mb-8">{{ if eq $.Kind "term" }}Other topics{{ else }}All topics{{ end }}</h2>
-    {{ partial "components/work-topic-directory.html" $ }}
+    {{ partial "components/topic-directory.html" $ }}
   </div>
 </section>
 {{ end }}

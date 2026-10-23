@@ -1,5 +1,5 @@
 {
-  description = "Laon - Reproducible Platform Engineer website";
+  description = "LAONTME — personal website of Stanislav Smirnov";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

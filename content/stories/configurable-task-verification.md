@@ -5,7 +5,7 @@ title: Configurable task verification
 summary: Turning task completion into explicit, type-specific checks instead of hard-coding campaign logic into every reward flow.
 status: Backend architecture · Go / TON / Telegram
 weight: 1
-work-topics: [integrations, backend-architecture, reliability]
+topics: [integrations, backend-architecture, reliability]
 timeline_date: 2024-06-01
 stack:
   - Go

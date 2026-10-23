@@ -2,7 +2,7 @@
 timeline_summary: "A TON launchpad connecting investors and private rounds."
 timeline_detail: "Eligibility, wallet payments, vesting"
 title: TONstarter launchpad
-work-topics: [integrations, payments, reliability]
+topics: [integrations, payments, reliability]
 status: Product development · 2023
 summary: A TON launchpad with private-round eligibility, allocations, wallet payments, KYC states, vesting data, and investor communications.
 weight: 5

@@ -10,7 +10,7 @@
   </div>
 </section>
 {{ $page := . }}
-{{ range slice (dict "section" "case-studies" "title" "Stories") (dict "section" "projects" "title" "Projects") (dict "section" "work" "title" "Companies") }}
+{{ range slice (dict "section" "stories" "title" "Stories") (dict "section" "projects" "title" "Projects") (dict "section" "companies" "title" "Companies") }}
   {{ $title := .title }}
   {{ $items := where $page.RegularPages "Section" .section }}
   {{ with $items }}
@@ -28,6 +28,6 @@
     </section>
   {{ end }}
 {{ end }}
-{{ partial "components/work-topics-section.html" . }}
+{{ partial "components/topics-section.html" . }}
 </div>
 {{ end }}

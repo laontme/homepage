@@ -1,6 +1,6 @@
 ---
 title: Open Builders
-work-topics: [integrations, payments, backend-architecture]
+topics: [integrations, payments, backend-architecture]
 role: Full-stack Developer
 org: Open Builders
 period: May 2023 – May 2024

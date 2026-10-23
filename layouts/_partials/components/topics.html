@@ -1,7 +1,7 @@
 {{ $page := . }}
 {{ $active := "" }}
 {{ if reflect.IsMap . }}{{ $page = .page }}{{ $active = .activeTerm | default "" }}{{ end }}
-{{ with $page.GetTerms "work-topics" }}
+{{ with $page.GetTerms "topics" }}
 <nav class="post-terms" aria-label="Work topics">
   {{ $topics := union (where . "RelPermalink" $active) (where . "RelPermalink" "ne" $active) }}
   {{ range $topics }}

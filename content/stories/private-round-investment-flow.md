@@ -5,7 +5,7 @@ title: Private-round investment flow
 summary: Connecting investor eligibility, allocations, KYC, wallet payment, vesting data, and communications into one understandable product path.
 status: Product integration · TypeScript / TON
 weight: 2
-work-topics: [integrations, payments, reliability]
+topics: [integrations, payments, reliability]
 timeline_date: 2023-06-15
 stack:
   - TypeScript

@@ -1,5 +1,5 @@
 {{ $kind := "PROJECT" }}
-{{ if eq .Section "case-studies" }}
+{{ if eq .Section "stories" }}
   {{ $kind = "STORY" }}
 {{ end }}
 {{ $date := time.AsTime .Params.timeline_date }}

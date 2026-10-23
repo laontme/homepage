@@ -2,7 +2,7 @@
 timeline_summary: "Product integrations during Notcoin’s rapid growth."
 timeline_detail: "Service connections, distribution tooling"
 title: Notcoin clicker game
-work-topics: [integrations]
+topics: [integrations]
 status: Product work · 2023–2024
 summary: Product and integration work around a Telegram-native game during its rapid-growth period.
 weight: 3
