@@ -13,11 +13,11 @@
       {{ partial "components/back-link.html" (dict "href" "/work/" "text" "Work") }}
       <h1 class="font-headline text-4xl md:text-5xl font-bold mt-6">{{ .Title }}</h1>
       {{ with .Params.summary }}
-        <p class="text-xl text-secondary leading-relaxed max-w-3xl mt-4">{{ . }}</p>
+        <p class="text-xl text-secondary leading-relaxed max-w-3xl mt-4">{{ . | strings.TrimSuffix "." }}</p>
       {{ end }}
       <div class="mt-5">
       {{ with .Params.role }}
-          <p class="meta-label">{{ . }}</p>
+          <p class="meta-label">{{ . | strings.TrimSuffix "." }}</p>
       {{ end }}
         <p class="meta-label mt-2">{{ .Params.period }}</p>
       </div>

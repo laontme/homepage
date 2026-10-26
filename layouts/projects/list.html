@@ -5,7 +5,7 @@
       {{ partial "components/back-link.html" (dict "href" "/work/" "text" "Work") }}
     </div>
     <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">{{ .Title }}</h1>
-    <p class="text-xl text-secondary leading-relaxed max-w-2xl">{{ .Description }}</p>
+    <p class="text-xl text-secondary leading-relaxed max-w-2xl">{{ .Description | strings.TrimSuffix "." }}</p>
   </div>
 </section>
 

@@ -1,0 +1,7 @@
+{{- /* Only trusted, vendored SVG assets; decorative alongside visible labels. */ -}}
+{{- $path := printf "icons/ix/%s.svg" . -}}
+{{- with resources.Get $path -}}
+  {{- replaceRE `<svg\s` `<svg class="ui-icon" aria-hidden="true" focusable="false" ` .Content | safeHTML -}}
+{{- else -}}
+  {{- errorf "Missing vendored Siemens icon: %s" $path -}}
+{{- end -}}

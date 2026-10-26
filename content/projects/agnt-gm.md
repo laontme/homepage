@@ -1,7 +1,8 @@
 ---
 timeline_summary: "A brief-to-bot builder powered by coding agents."
 timeline_detail: "Blueprints, agent execution, deployment"
-title: AGNT GM
+title: AGNT GM Telegram bot builder
+slug: agnt-gm
 topics: [agent-systems, integrations, infrastructure]
 status: Experiment · 2026
 summary: A Telegram bot builder that used coding agents to turn a brief into a deployable bot.

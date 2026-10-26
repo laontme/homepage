@@ -9,8 +9,8 @@
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col gap-3 mb-10 md:flex-row md:items-center md:justify-between">
         <div class="max-w-2xl">
-          <h2 class="font-headline text-3xl md:text-4xl font-bold mb-3">Work</h2>
-          <p class="text-secondary text-lg">Selected work from 2022 → today</p>
+          <h2 class="font-headline text-3xl md:text-4xl font-bold mb-3">Timeline</h2>
+          <p class="text-secondary text-lg">Selected work from 2022 {{ partial "icon.html" "arrow-right" }} today</p>
         </div>
         <nav class="trajectory-view-tabs" aria-label="Work views">
           <a href="{{ "/work/projects/" | relURL }}" class="trajectory-view-tab">Projects <span>{{ len $projects }}</span></a>
@@ -61,8 +61,8 @@
       const viewport = document.querySelector(".trajectory-viewport");
       if (!viewport) return;
       const section = viewport.closest(".trajectory-section");
-      const yearMarkers = [...(section?.querySelectorAll(".trajectory-axis [data-year]") || [])];
-      const todayMarker = section?.querySelector(".trajectory-axis [data-today]");
+      const axis = section?.querySelector(".trajectory-axis");
+      const markers = [...(axis?.querySelectorAll(":scope > span") || [])];
 
       let pointerId = null;
       let startX = 0;
@@ -72,17 +72,22 @@
 
       const updateProgress = () => {
         const distance = viewport.scrollWidth - viewport.clientWidth;
-        const progress = distance > 0 ? viewport.scrollLeft / distance : 0;
-        section?.style.setProperty("--trajectory-progress", `${Math.min(100, Math.max(0, progress * 100))}%`);
-        const activeYear = 2026 - progress * 4;
-        yearMarkers.forEach((marker) => {
-          marker.classList.toggle("is-active", Number(marker.dataset.year) >= activeYear - 0.01);
+        // Scroll dimensions are rounded, but scrollLeft can be fractional.
+        const atEnd = distance > 0 && distance - viewport.scrollLeft <= 1;
+        const progress = atEnd ? 1 : Math.min(1, Math.max(0, distance > 0 ? viewport.scrollLeft / distance : 0));
+        section?.style.setProperty("--trajectory-progress", `${progress * 100}%`);
+        if (!axis) return;
+        const bounds = axis.getBoundingClientRect();
+        const railEnd = bounds.left + bounds.width * progress;
+        markers.forEach((marker, index) => {
+          const position = marker.getBoundingClientRect().left;
+          marker.classList.toggle("is-active", index === 0 || atEnd || railEnd >= position - 0.01);
         });
-        todayMarker?.classList.add("is-active");
       };
 
       updateProgress();
       viewport.addEventListener("scroll", updateProgress, { passive: true });
+      new ResizeObserver(updateProgress).observe(viewport);
       viewport.addEventListener("dragstart", (event) => event.preventDefault());
 
       viewport.addEventListener("pointerdown", (event) => {

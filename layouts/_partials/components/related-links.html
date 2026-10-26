@@ -8,7 +8,7 @@
         {{ range . }}
           {{ with $site.GetPage (printf "/companies/%s" .) }}
             <a href="{{ .RelPermalink }}" class="tech-control inline-flex items-center gap-1.5 px-3 py-2 text-sm border border-border text-secondary hover:text-foreground hover:border-accent transition-colors">
-              Work: {{ .Title }} <iconify-icon icon="tabler:arrow-up-right"></iconify-icon>
+              Work: {{ .Title }} {{ partial "icon.html" "arrow-diagonal-top-right" }}
             </a>
           {{ end }}
         {{ end }}
@@ -17,7 +17,7 @@
         {{ range . }}
           {{ with $site.GetPage (printf "/projects/%s" .) }}
             <a href="{{ .RelPermalink }}" class="tech-control inline-flex items-center gap-1.5 px-3 py-2 text-sm border border-border text-secondary hover:text-foreground hover:border-accent transition-colors">
-              Project: {{ .Title }} <iconify-icon icon="tabler:arrow-up-right"></iconify-icon>
+              Project: {{ .Title }} {{ partial "icon.html" "arrow-diagonal-top-right" }}
             </a>
           {{ end }}
         {{ end }}
@@ -26,7 +26,7 @@
         {{ range . }}
           {{ with $site.GetPage (printf "/stories/%s" .) }}
             <a href="{{ .RelPermalink }}" class="tech-control inline-flex items-center gap-1.5 px-3 py-2 text-sm border border-border text-secondary hover:text-foreground hover:border-accent transition-colors">
-              Story: {{ .Title }} <iconify-icon icon="tabler:arrow-right"></iconify-icon>
+              Story: {{ .Title }} {{ partial "icon.html" "arrow-right" }}
             </a>
           {{ end }}
         {{ end }}

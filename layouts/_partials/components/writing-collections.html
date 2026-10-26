@@ -1,0 +1,7 @@
+<div class="work-list">
+  {{ range .pages }}
+    {{ partial "components/listing-row.html" (dict "page" .Page "meta" (printf "%d posts" .Count)) }}
+  {{ else }}
+    {{ partial "components/empty-state.html" (dict "title" "No series yet" "subtitle" "Series appear here once posts are published") }}
+  {{ end }}
+</div>

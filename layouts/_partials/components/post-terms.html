@@ -1,0 +1,15 @@
+{{ $page := . }}
+{{ $active := "" }}
+{{ if reflect.IsMap . }}{{ $page = .page }}{{ $active = .activeTerm | default "" }}{{ end }}
+{{ if or ($page.GetTerms "series") ($page.GetTerms "writing_topics") }}
+<nav class="post-terms" aria-label="Post collections and topics">
+  {{ range $page.GetTerms "series" }}
+    <a class="post-term post-term-series" href="{{ .RelPermalink }}"{{ if eq .RelPermalink $active }} aria-current="page"{{ end }}>{{ .Title }}</a>
+  {{ end }}
+  {{ $topics := $page.GetTerms "writing_topics" }}
+  {{ $topics = union (where $topics "RelPermalink" $active) (where $topics "RelPermalink" "ne" $active) }}
+  {{ range $topics }}
+    <a class="post-term{{ if eq .RelPermalink $active }} post-term-active{{ end }}" href="{{ .RelPermalink }}"{{ if eq .RelPermalink $active }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a>
+  {{ end }}
+</nav>
+{{ end }}

@@ -1,0 +1,32 @@
+{{ $allWork := where site.RegularPages "Section" "in" (slice "companies" "projects" "stories") }}
+{{ with .Params.work_proof }}
+<section class="py-24 md:py-32" aria-labelledby="work-proof-heading">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="selected-work-heading">
+      <div>
+        <h2 id="work-proof-heading" class="font-headline text-3xl md:text-4xl font-bold mb-3">Selected work</h2>
+        <p class="text-secondary text-lg">A few problems worth showing</p>
+      </div>
+      <a class="trajectory-view-tab" href="{{ "/work/" | relURL }}">All work <span>{{ len $allWork }}</span></a>
+    </div>
+    <ul class="selected-work-list">
+      {{ range . }}
+        {{ $entry := . }}
+        {{ with site.GetPage .page }}
+          <li>
+            <a href="{{ .RelPermalink }}" class="selected-work-row">
+              <div class="selected-work-copy">
+                <p class="meta-label text-secondary mb-3">{{ $entry.context }}</p>
+                <h3 class="font-headline text-xl md:text-2xl font-semibold">{{ .Title }}</h3>
+                <p class="selected-work-description">{{ $entry.summary | strings.TrimSuffix "." }}</p>
+                {{ with $entry.evidence }}<p class="meta-label text-secondary mt-3">{{ . }}</p>{{ end }}
+              </div>
+              <span class="selected-work-open">{{ partial "icon.html" "arrow-diagonal-top-right" }}</span>
+            </a>
+          </li>
+        {{ end }}
+      {{ end }}
+    </ul>
+  </div>
+</section>
+{{ end }}

@@ -50,7 +50,7 @@ For a different preview port, run `hugo server --port 1314 --disableFastRender` 
 
 Companies describe roles, projects describe products, and stories describe specific engineering contributions. The `topics` front-matter field groups relevant companies, projects, and stories into shared topic pages. Relations between entries use `related_work`, `related_projects`, and `related_case_studies` with content filename stems.
 
-The homepage timeline uses `timeline_date`, `timeline_summary`, and `timeline_detail`; an optional `evidence` field supplies supporting figures. Entries marked `draft: true` are excluded from normal builds.
+The homepage selects featured and compact stories explicitly through `work_proof` in `content/_index.md`. The full timeline is on `/work/` and uses `timeline_date`, `timeline_summary`, and `timeline_detail`; an optional `evidence` field supplies supporting figures. Entries marked `draft: true` are excluded from normal builds. Private writing drafts and research remain Git-ignored and are not part of the public source.
 
 ## Layout and styling
 
@@ -64,6 +64,12 @@ The homepage timeline uses `timeline_date`, `timeline_summary`, and `timeline_de
 - `hugo.toml`: site configuration, URL structure, and subscription settings.
 
 The site follows the system light/dark preference. Typography uses Satoshi, DM Sans, JetBrains Mono, and Space Grotesk. Small inline scripts handle timeline dragging and the cursor-reactive capability rail.
+
+UI icons are vendored Siemens Industrial Experience SVGs in `assets/icons/ix/`, with their upstream MIT license and source attribution. `layouts/_partials/icon.html` inlines them at build time; icons work without JavaScript or Iconify API requests. Refresh the selected assets explicitly with `bash scripts/update-icons.sh`; normal builds are offline for icons. Navigation arrows use these SVGs; arrows used as notation inside article bodies remain text.
+
+Social-share covers are generated deterministically as 1200 × 630 PNGs by Hugo's native image pipeline (`layouts/_partials/social-image.html`). Each page supplies its title and description. No AI, external rendering service, or browser JavaScript is involved. Bundled Space Grotesk fonts retain their OFL license in `assets/fonts/`. To change the geometric background, edit and run `python3 scripts/social-background.py`; ordinary builds need only Hugo. The same setup works in the existing Nix build without a separate VPS service.
+
+Use `social_subtitle` in page front matter to give a cover its own subtitle instead of reusing its description. Favicons are simplified from the existing portrait; regenerate their checked-in PNG/ICO files with `bash scripts/favicon.sh` (requires ImageMagick). Normal builds do not require ImageMagick.
 
 Email updates use a Listmonk subscription form. `/index.xml` remains available as an empty RSS feed while writing is unpublished.
 

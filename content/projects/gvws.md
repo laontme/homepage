@@ -1,6 +1,7 @@
 ---
 timeline_summary: "Task verification and rewards across partner campaigns."
-title: GVWS
+title: GVWS giveaway platform
+slug: gvws
 evidence: "848k task completions · 116 campaigns"
 topics: [integrations, backend-architecture, reliability]
 status: Archived · 2025
@@ -17,6 +18,8 @@ related_work:
   - ton-expert-club
 related_case_studies:
   - configurable-task-verification
+  - final-eligibility-check
+  - payment-reconciliation
 ---
 
 GVWS was a product for partner campaigns: users completed actions in connected applications and received entries or rewards. The backend had to model many task types, verify external state, track progress, and deliver prizes without making the product team hand-build every partner flow.

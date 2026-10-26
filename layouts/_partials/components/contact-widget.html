@@ -2,7 +2,7 @@
   <div class="max-w-6xl mx-auto px-6 contact-widget">
     <div class="contact-message">
       <h2 id="contact-heading" class="font-headline text-3xl md:text-4xl font-bold mb-3">Contact</h2>
-      <p class="text-secondary leading-relaxed">Tell me what you’re working on and where you’re stuck.</p>
+      <p class="text-secondary leading-relaxed">Tell me what you’re working on and where you’re stuck</p>
 
       <form class="contact-form" action="{{ site.Params.contact.action }}" method="post" aria-label="Contact">
         <div hidden aria-hidden="true">
@@ -22,7 +22,7 @@
         <div class="contact-form-footer">
           <button type="submit" class="tech-control inline-flex items-center px-4 py-2 bg-marker-bg text-foreground text-sm font-medium border border-marker-soft">Send message</button>
           <a class="subscribe-rss-command" href="mailto:yo@laont.me">
-            <iconify-icon icon="ix:mail" aria-hidden="true"></iconify-icon>
+            {{ partial "icon.html" "mail" }}
             <span>yo@laont.me</span>
           </a>
         </div>

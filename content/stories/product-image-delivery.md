@@ -1,7 +1,6 @@
 ---
 title: Product images that stay sharp when customers zoom
 summary: Moving from wsrv.nl to self-hosted imgproxy, with CDN caching and staged image loading to balance fast browsing with full-resolution product detail.
-draft: false
 # Placeholder within the Viceseason period; confirm before finalizing chronology.
 timeline_date: 2023-06-01
 timeline_summary: Sharp product detail without slowing the initial image load.
@@ -18,16 +17,22 @@ related_projects:
   - viceseason-store
 ---
 
-## The problem
+The request started with a specific complaint: the owner could see pixels when zooming into product photos on an iPhone.
 
-The request started with a concrete complaint: the owner could see pixels when zooming into product images on an iPhone. The images delivered for ordinary browsing did not preserve enough detail for that interaction.
+Images that were acceptable for ordinary browsing did not preserve enough detail for that interaction. Sending larger images immediately would address one part of the problem while making the initial page load heavier.
 
-## Delivery pipeline
+I worked on separating those two needs: something quick to show first, and a sharper image for closer inspection.
 
-We initially used wsrv.nl for image processing, then migrated to a self-hosted imgproxy setup. A caching CDN sat in front of the image processor. New image variants were processed and converted on a cache miss, then served from the CDN cache on subsequent requests while the cached response remained valid.
+## Separate initial display from higher-resolution detail
 
-## Loading strategy
+The image component used a compressed source for the initial image, then loaded a higher-resolution version in the background. That let the delivery path treat initial browsing and detailed inspection differently.
 
-The page first loaded a compressed image for speed, then loaded the full-size version in the background. Browser caching allowed repeat views to reuse images rather than downloading them on every visit, subject to cache freshness and eviction.
+The image work evolved over several iterations. We used wsrv.nl for processing, then later moved to self-hosted imgproxy. The later implementation generated signed transformation URLs rather than exposing arbitrary transformation parameters as an unsigned URL.
 
-The goal was to keep the initial product view fast while making high-resolution detail available for closer inspection.
+## Reuse processed variants
+
+We put a caching CDN in front of the processor. A missing variant could be processed and converted, then served from cache on subsequent requests while that cached response remained valid.
+
+Browser caching handled another part of the path: returning to an image should not require downloading it again when the browser already had a usable cached response.
+
+The goal was not simply smaller images. It was keeping browsing responsive without making product detail disappear when someone wanted a closer look.

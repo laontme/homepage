@@ -17,10 +17,12 @@
       {{ .Title }}
     </h1>
     <p class="text-xl text-secondary leading-relaxed max-w-2xl">
-      {{ .Description }}
+      {{ .Description | strings.TrimSuffix "." }}
     </p>
   </div>
 </section>
+
+{{ partial "components/trajectory-section.html" . }}
 
 {{ with $caseStudies }}
   <section class="py-24 bg-surface">
@@ -28,7 +30,7 @@
       <section aria-labelledby="case-studies-heading">
         <h2 id="case-studies-heading" class="font-headline text-3xl md:text-4xl font-semibold mb-3">Stories</h2>
         {{ with $caseStudiesIndex }}
-          <p class="text-lg text-secondary leading-relaxed max-w-2xl mb-8">{{ .Description }}</p>
+          <p class="text-lg text-secondary leading-relaxed max-w-2xl mb-8">{{ .Description | strings.TrimSuffix "." }}</p>
         {{ end }}
         <div class="work-list">
           {{ range . }}
@@ -47,7 +49,7 @@
       <section aria-labelledby="projects-heading">
         <h2 id="projects-heading" class="font-headline text-3xl md:text-4xl font-semibold mb-3">Projects</h2>
         {{ with $projectsIndex }}
-          <p class="text-lg text-secondary leading-relaxed max-w-2xl mb-8">{{ .Description }}</p>
+          <p class="text-lg text-secondary leading-relaxed max-w-2xl mb-8">{{ .Description | strings.TrimSuffix "." }}</p>
         {{ end }}
         <div class="work-list">
           {{ range . }}

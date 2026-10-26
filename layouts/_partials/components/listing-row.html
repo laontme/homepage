@@ -9,8 +9,12 @@
     <span class="work-row-meta meta-label">{{ . }}</span>
   {{ end }}
   {{ with $description }}
-    <span class="work-row-summary text-secondary text-sm">{{ . }}</span>
+    <span class="work-row-summary text-secondary text-sm">{{ . | strings.TrimSuffix "." }}</span>
   {{ end }}
 </a>
-  {{ partial "components/topics.html" (dict "page" $page "activeTerm" .activeTerm) }}
+  {{ if eq $page.Section "blog" }}
+    {{ partial "components/post-terms.html" (dict "page" $page "activeTerm" .activeTerm) }}
+  {{ else }}
+    {{ partial "components/topics.html" (dict "page" $page "activeTerm" .activeTerm) }}
+  {{ end }}
 </article>

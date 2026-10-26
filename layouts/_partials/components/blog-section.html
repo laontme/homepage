@@ -1,0 +1,26 @@
+{{ $posts := where .Site.RegularPages "Section" "blog" }}
+{{ if $posts }}
+<section id="blog" class="py-24 bg-surface flex-1 flex flex-col">
+  <div class="max-w-6xl mx-auto px-6 w-full flex-1 flex flex-col">
+    <div class="flex flex-col gap-2 mb-8 sm:flex-row sm:items-center sm:justify-between">
+      <div class="flex flex-col gap-2">
+        <h2 class="font-headline text-3xl md:text-4xl font-semibold">
+          Recent Posts
+        </h2>
+        <p class="text-secondary text-lg">Thoughts on what I’m building and learning</p>
+      </div>
+      <a href="{{ "/writing/" | relURL }}" class="trajectory-view-tab">
+        All posts <span>{{ len $posts }}</span>
+      </a>
+    </div>
+
+    {{ if $posts }}
+      <div class="work-list">
+        {{ range first 3 $posts.ByDate.Reverse }}
+          {{ partial "components/listing-row.html" (dict "page" . "meta" (.Date.Format "Jan 2, 2006")) }}
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

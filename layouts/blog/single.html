@@ -1,0 +1,23 @@
+{{ define "main" }}
+<section class="py-24">
+  <article class="max-w-6xl mx-auto px-6">
+    <header class="max-w-3xl mb-10">
+      {{ partial "components/back-link.html" (dict "href" "/writing/" "text" "Writing") }}
+      <h1 class="font-headline text-4xl md:text-5xl font-bold mt-6 mb-4">{{ .Title }}</h1>
+      {{ with .Description }}
+        <p class="text-xl text-secondary leading-relaxed max-w-3xl">{{ . | strings.TrimSuffix "." }}</p>
+      {{ end }}
+      {{ with .Date }}
+        <p class="meta-label mt-5">{{ .Format "January 2, 2006" }}</p>
+      {{ end }}
+      {{ partial "components/post-terms.html" . }}
+    </header>
+    {{ if .Content }}
+      <div class="prose-blog max-w-3xl">
+        {{ .Content }}
+      </div>
+    {{ end }}
+    {{ partial "components/content-license.html" . }}
+  </article>
+</section>
+{{ end }}

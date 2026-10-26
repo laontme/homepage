@@ -1,0 +1,36 @@
+{{ define "main" }}
+<section class="py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    {{ partial "components/back-link.html" (dict "href" "/writing/" "text" "Writing") }}
+    <header class="max-w-3xl">
+      <h1 class="font-headline text-4xl md:text-5xl font-bold mt-6 mb-4">{{ .Title }}</h1>
+      {{ with .Description }}<p class="text-xl text-secondary leading-relaxed">{{ . | strings.TrimSuffix "." }}</p>{{ end }}
+      <p class="meta-label mt-5">{{ len .RegularPages }} posts</p>
+    </header>
+    {{ with .Content }}<div class="prose-blog max-w-3xl mt-8">{{ . }}</div>{{ end }}
+  </div>
+</section>
+<section class="py-24">
+  <div class="max-w-6xl mx-auto px-6 work-list">
+    {{ range .RegularPages.ByDate.Reverse }}
+      {{ partial "components/listing-row.html" (dict "page" . "meta" (.Date.Format "Jan 2, 2006") "activeTerm" $.RelPermalink) }}
+    {{ else }}
+      {{ partial "components/empty-state.html" (dict "title" "No posts yet" "subtitle" "Check back soon") }}
+    {{ end }}
+  </div>
+</section>
+{{ if eq .Data.Plural "writing_topics" }}
+<section class="py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="font-headline text-3xl md:text-4xl font-semibold mb-8">Other topics</h2>
+    <nav class="post-terms" aria-label="Other writing topics">
+      {{ range .Site.Taxonomies.writing_topics.Alphabetical }}
+        {{ if ne .Page.RelPermalink $.RelPermalink }}
+          <a class="post-term" href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <span class="text-tertiary">{{ .Count }}</span></a>
+        {{ end }}
+      {{ end }}
+    </nav>
+  </div>
+</section>
+{{ end }}
+{{ end }}

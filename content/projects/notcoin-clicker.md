@@ -16,6 +16,9 @@ stack:
   - TON
 related_work:
   - open-builders
+related_case_studies:
+  - wallet-eligibility
+  - claim-export-formats
 ---
 
 I worked within the team during Notcoin’s rapid-growth period, focusing on product integrations, internal and external service connections, and token-distribution tooling.

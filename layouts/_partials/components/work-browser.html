@@ -1,0 +1,45 @@
+{{ $all := where site.RegularPages "Section" "in" (slice "companies" "projects" "stories") }}
+{{ with .Params.work_proof }}
+<section class="py-24 md:py-32" aria-labelledby="work-proof-heading">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="selected-work-heading">
+      <h2 id="work-proof-heading" class="font-headline text-3xl md:text-4xl font-bold">Selected work</h2>
+      <a class="trajectory-view-tab" href="{{ "/work/" | relURL }}">All work <span>{{ len $all }}</span></a>
+    </div>
+    {{ $first := true }}
+    <div class="work-evidence">
+      {{ range . }}
+        {{ $entry := . }}
+        {{ with site.GetPage .page }}
+          {{ if $first }}
+          <a class="work-feature" href="{{ .RelPermalink }}">
+            <div>
+              <p class="meta-label text-secondary mb-4">{{ $entry.context }}</p>
+              <h3 class="font-headline text-2xl md:text-3xl font-semibold leading-tight">{{ .Title }}</h3>
+              <p class="text-secondary leading-relaxed mt-4">{{ .Params.timeline_summary | default .Params.summary | strings.TrimSuffix "." }}</p>
+              <span class="work-feature-read">Read the story {{ partial "icon.html" "arrow-diagonal-top-right" }}</span>
+            </div>
+            <div class="work-feature-proof">
+              <ol class="work-browser-flow" aria-label="Systems involved">
+                {{ range $entry.steps }}<li><span aria-hidden="true"></span>{{ . }}</li>{{ end }}
+              </ol>
+              {{ with $entry.evidence }}<p class="meta-label text-secondary">{{ . }}</p>{{ end }}
+            </div>
+          </a>
+          {{ $first = false }}
+          {{ else }}
+          <a class="work-evidence-row" href="{{ .RelPermalink }}">
+            <div>
+              <p class="meta-label text-secondary mb-2">{{ $entry.context }}</p>
+              <h3 class="font-headline text-xl font-semibold">{{ .Title }}</h3>
+              <p class="text-secondary text-sm mt-2">{{ $entry.preview | default .Params.timeline_summary | default .Params.summary | strings.TrimSuffix "." }}</p>
+            </div>
+            {{ partial "icon.html" "arrow-diagonal-top-right" }}
+          </a>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

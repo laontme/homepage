@@ -1,0 +1,4 @@
+{{- /* UI metadata may use arrows as separators; keep article prose untouched. */ -}}
+{{- $text := . | strings.TrimSuffix "." | htmlEscape -}}
+{{- $arrow := partial "icon.html" "arrow-right" -}}
+{{- replace $text "→" (string $arrow) | safeHTML -}}

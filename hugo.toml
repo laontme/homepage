@@ -5,25 +5,33 @@ enableRobotsTXT = true
 
 [taxonomies]
 topic = "topics"
+writing_topic = "writing_topics"
+series = "series"
 
 [permalinks.taxonomy]
 topics = "/work/topics/"
+writing_topics = "/writing/topics/"
+series = "/writing/series/"
 
 [permalinks.term]
 topics = "/work/topics/:slug/"
+writing_topics = "/writing/topics/:slug/"
+series = "/writing/series/:slug/"
 
 [permalinks.page]
+blog = "/writing/:slug/"
 companies = "/work/companies/:slug/"
 projects = "/work/projects/:slug/"
 stories = "/work/stories/:slug/"
 
 [permalinks.section]
+blog = "/writing/"
 companies = "/work/"
 projects = "/work/projects/"
 stories = "/work/stories/"
 
 [params]
-description = "LAONTME — personal system interface of Stanislav Smirnov. Backend / platform engineer. Production backends, integrations, infrastructure, and agent systems. Based in Tbilisi."
+description = "Stanislav Smirnov — backend engineering and integrations, from diagnosis to production."
 
 [params.author]
 name = "Stanislav Smirnov"
@@ -61,6 +69,10 @@ target = 'css'
 
 [[build.cachebusters]]
 source = '(postcss|tailwind)\.config\.js'
+target = 'css'
+
+[[build.cachebusters]]
+source = 'assets/css/.*\.css'
 target = 'css'
 
 

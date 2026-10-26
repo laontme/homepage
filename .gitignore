@@ -29,6 +29,8 @@ Thumbs.db
 
 # Local draft posts (rendered only with hugo -D)
 content/blog/_drafts/
+content/blog/welcome-to-my-website.md
+content/stories/local-drafts/
 .local-preservation/
 .frpc.toml
 FRP-HANDOFF.md

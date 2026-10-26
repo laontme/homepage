@@ -1,10 +1,11 @@
 ---
-title: AGNT
+title: AGNT GM
+slug: agnt
 topics: [agent-systems, integrations, infrastructure]
-role: Founding Engineer
-org: AGNT
+role: Software Engineer
+org: AGNT GM
 period: Mar 2026 – Aug 2026
-summary: Founding engineering work across several product directions, including the AGNT GM Telegram bot builder.
+summary: Software engineering across several product directions, including the AGNT GM Telegram bot builder.
 weight: 1
 featured: true
 date: 2026-03-01
@@ -15,7 +16,7 @@ stack:
   - Go
 ---
 
-AGNT went through three product directions while I was there: agentic trading, then an open-source contribution platform, then AGNT GM — an attempt at a “Lovable for Telegram bots.” I was a founding engineer. The work followed the product.
+The team went through three product directions while I was there: agentic trading, then an open-source contribution platform, then AGNT GM — an attempt at a “Lovable for Telegram bots.” I worked as a software engineer. The work followed the product.
 
 I started on a TypeScript/oclif CLI and Telegram bot-building skills for coding agents. The CLI was dropped. It is not a product I would point to. The skills were largely AI-generated; they are not handcrafted IP and not a flagship result.
 

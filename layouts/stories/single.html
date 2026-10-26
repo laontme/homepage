@@ -4,7 +4,7 @@
     <header class="max-w-3xl mb-10">
       {{ partial "components/back-link.html" (dict "href" "/work/stories/" "text" "Stories") }}
       <h1 class="font-headline text-4xl md:text-5xl font-bold mt-6 mb-4">{{ .Title }}</h1>
-      {{ with .Params.summary }}<p class="text-xl text-secondary leading-relaxed max-w-3xl">{{ . }}</p>{{ end }}
+      {{ with .Params.summary }}<p class="text-xl text-secondary leading-relaxed max-w-3xl">{{ . | strings.TrimSuffix "." }}</p>{{ end }}
       {{ partial "components/topics.html" . }}
     </header>
     <div class="prose-blog max-w-3xl">{{ .Content }}</div>

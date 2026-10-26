@@ -1,7 +1,8 @@
 ---
 timeline_summary: "An international fashion store with connected operations."
 timeline_detail: "Payments, shipping, inventory"
-title: Viceseason store
+title: Viceseason online store
+slug: viceseason-store
 topics: [commerce, integrations, reliability]
 status: Commerce platform · 2022–2026
 summary: An international fashion-commerce site with checkout, payment verification, shipping, fulfilment, and multilingual product flows.

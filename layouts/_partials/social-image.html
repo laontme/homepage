@@ -1,0 +1,26 @@
+{{- /* Native Hugo raster generation: bundled font, no runtime service. */ -}}
+{{- $font := resources.Get "fonts/SpaceGrotesk.ttf" -}}
+{{- $headingFont := resources.Get "fonts/SpaceGrotesk-Bold.ttf" -}}
+{{- $base := resources.Get "images/social-background.png" -}}
+{{- $label := "LAONTME / WORK" -}}
+{{- if eq .Section "blog" }}{{ $label = "LAONTME / WRITING" }}{{ end -}}
+{{- if .IsHome }}{{ $label = "BACKEND / INTEGRATIONS / INTERNAL SYSTEMS" }}{{ end -}}
+{{- $title := .Title | plainify -}}
+{{- if .IsHome }}{{ $title = "Systems over symptoms" }}{{ end -}}
+{{- /* Bound title length so unusually long titles cannot collide with footer. */ -}}
+{{- $title = $title | truncate 110 -}}
+{{- $size := 76 -}}
+{{- if gt (strings.RuneCount $title) 45 }}{{ $size = 62 }}{{ end -}}
+{{- if gt (strings.RuneCount $title) 80 }}{{ $size = 52 }}{{ end -}}
+{{- $image := $base.Filter
+  (images.Text $label (dict "font" $font "size" 19 "x" 94 "y" 54 "color" "#8aa8c5"))
+  (images.Text $title (dict "font" $headingFont "size" $size "x" 64 "y" 172 "linespacing" 14 "color" "#e6ebf0"))
+  (images.Text "Stanislav Smirnov" (dict "font" $font "size" 26 "x" 64 "y" 535 "color" "#e6ebf0"))
+  (images.Text "laont.me" (dict "font" $font "size" 24 "alignx" "right" "x" 1136 "y" 537 "color" "#8aa8c5"))
+-}}
+{{- with (.Params.social_subtitle | default .Description) -}}
+  {{- if le (strings.RuneCount $title) 80 -}}
+    {{- $image = $image.Filter (images.Text (. | plainify | truncate 110) (dict "font" $font "size" 26 "x" 64 "y" 366 "linespacing" 8 "color" "#9daab7")) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $image -}}

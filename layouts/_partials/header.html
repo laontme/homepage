@@ -8,8 +8,11 @@
 
       <div class="flex items-center gap-4 md:gap-8">
         <a href="{{ "/work/" | relURL }}" class="text-sm transition-colors {{ if eq $section "companies" }}text-foreground{{ else }}text-secondary hover:text-foreground{{ end }}" {{ if eq $section "companies" }}aria-current="page"{{ end }}>Work</a>
+        {{ if where .Site.RegularPages "Section" "blog" }}
+          <a href="{{ "/writing/" | relURL }}" class="text-sm transition-colors {{ if eq $section "blog" }}text-foreground{{ else }}text-secondary hover:text-foreground{{ end }}" {{ if eq $section "blog" }}aria-current="page"{{ end }}>Writing</a>
+        {{ end }}
         <a href="#contact" class="nav-contact tech-control inline-flex items-center gap-1.5 bg-marker-bg text-foreground text-sm font-medium border border-marker-soft hover:bg-marker-bg/70 hover:border-marker transition-colors duration-400 cursor-pointer">
-          Contact <iconify-icon icon="tabler:arrow-down"></iconify-icon>
+          Contact {{ partial "icon.html" "arrow-down" }}
         </a>
       </div>
     </div>
