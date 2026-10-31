@@ -1,10 +1,10 @@
 ---
 title: Open Builders
-topics: [integrations, payments, backend-architecture]
+topics: [telegram, integrations, payments, backend-architecture]
 role: Full-stack Developer
 org: Open Builders
 period: May 2023 – May 2024
-summary: Product and integration work across TON applications, from investment flows to community mechanics and token-distribution paths.
+summary: Frontend, backend, and integration work connecting investor journeys, community tasks, and distribution operations across TON products.
 weight: 3
 featured: true
 date: 2023-05-01
@@ -19,8 +19,17 @@ related_projects:
   - tonstarter-launchpad
   - community-engagement
   - notcoin-clicker
+related_case_studies:
+  - private-round-investment-flow
+  - wallet-eligibility
+  - claim-export-formats
+  - notcoin-telegram-management
+  - community-telegram-subscription-tasks
+  - tonstarter-telegram-investor-messages
 ---
 
-I joined through Tonstarter and worked across the team’s changing product surface: frontend and backend product work, campaign mechanics, integrations, and data-heavy operational paths.
+I joined through Tonstarter and worked across frontend and backend development as the team moved through investment, community, and Notcoin products.
 
-The archived Tonstarter repositories show the most concrete part of that period: private-round eligibility and allocation flows, wallet payment handling, KYC states, vesting data, notifications, and the frontend states that made those paths usable. Later work moved closer to integrations and token-distribution tooling around Notcoin-era products.
+On Tonstarter, I connected investor eligibility, allocations, KYC, wallet payments, vesting details, and notifications across the backend and interface. In the community product, I worked on task mechanics that turned external actions into recorded progress. During the Notcoin period, my contributions included partner integrations, destination-specific claim exports, and internal Telegram management commands.
+
+Across these products, my work connected external services and product rules to the records, screens, and operational tools that people used.

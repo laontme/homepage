@@ -19,18 +19,31 @@ related_projects:
   - viceseason-store
 ---
 
-## Context
+An international store’s checkout is the start of an operational flow. A purchase also needs a verified payment, available stock, an appropriate delivery option, and communication with the customer and the team.
 
-An e-commerce checkout only works when several systems agree: the payment outcome, shipping price and carrier order, product availability, localized customer data, and the communications that follow.
+At Viceseason, I worked across those connections in the Laravel application.
 
-## What I worked on
+## Connect checkout to payment and availability
 
-At Viceseason, I worked across that operational path: payment verification and result pages, shipping-price calculation, carrier order creation, stock and sold-out handling, checkout validation, order emails, Telegram notifications, translations, and the Docker/Caddy deployment setup.
+I contributed payment verification and result pages, stock and sold-out handling, checkout validation, and multilingual product flows. The application needed to present the purchase using the order’s payment, product, and locale data.
 
-## Why it matters
+Adding a payment provider or delivery option meant connecting its response to the existing order path. Each integration had to fit the records and states the rest of the store already used.
 
-The job was not to invent a checkout. It was to keep the business-critical states connected as the store added countries, payment providers, delivery options, and catalogue changes.
+## Carry the order into fulfilment
 
-## My role
+The shipping work connected price calculation and carrier order creation to the purchase. Customer emails and Telegram operations messages used order and delivery details to communicate what had happened and what needed handling.
 
-I contributed full-stack and deployment work in the Laravel application. This case study describes the systems I worked on, not a claim of sole ownership of the brand or store.
+```text
+Checkout and order data
+  → payment and availability handling
+  → delivery pricing and carrier integration
+  → customer and team communication
+```
+
+These are the connected responsibilities in the purchase path; individual payment and shipping methods had their own processing steps.
+
+## Keep the running store connected
+
+The work evolved across countries, payment providers, delivery options, and catalogue changes. I contributed full-stack integration and Docker/Caddy deployment work as part of that application.
+
+The system’s value was in carrying a purchase through the business: from the customer-facing checkout to the information used to prepare, ship, and communicate about an order.

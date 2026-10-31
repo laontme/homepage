@@ -1,10 +1,10 @@
 ---
 title: Viceseason
-topics: [commerce, integrations, reliability, infrastructure]
+topics: [telegram, commerce, integrations, reliability, infrastructure]
 role: Full-stack Developer
 org: Viceseason
 period: Oct 2022 – 2026
-summary: An independent fashion label’s commerce platform, where product, payment, fulfilment, and deployment all met in one codebase.
+summary: Commerce engineering connecting checkout, payments, stock, delivery, and communication for an independent fashion label.
 weight: 4
 featured: true
 date: 2022-10-01
@@ -16,8 +16,14 @@ stack:
   - Docker
 related_projects:
   - viceseason-store
+related_case_studies:
+  - commerce-checkout-and-fulfilment
+  - product-image-delivery
+  - commerce-telegram-operations
 ---
 
-I worked on the commerce platform behind Viceseason: checkout and payment verification, shipping calculations and carrier orders, multilingual product flows, order emails and Telegram notifications, plus the Docker/Caddy deployment setup.
+I worked on the software behind Viceseason, an independent fashion label selling internationally. My role spanned the customer purchase path and the operations that followed: checkout, payment verification, product availability, delivery, and communication.
 
-It was a useful early lesson in product engineering: the critical path is rarely one feature. Orders, inventory, delivery, payment state, customer messages, and production operations have to agree.
+I contributed full-stack work in the Laravel application, connected payment and shipping providers, and maintained the Docker/Caddy deployment setup. Order emails and Telegram messages carried purchase and fulfilment information to customers and the team.
+
+The work connected a storefront to a running business. A payment result, an available product, a carrier order, and a customer message all needed to refer to the same purchase.

@@ -1,6 +1,6 @@
 baseURL = "https://laont.me/"
 languageCode = "en-us"
-title = "LAONTME - Systems over symptoms"
+title = "LAONTME — Systems over symptoms"
 enableRobotsTXT = true
 
 [taxonomies]

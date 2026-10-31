@@ -1,24 +1,22 @@
 ---
 title: "LAONTME"
-description: "Stanislav Smirnov — backend engineering and integrations, from diagnosis to production."
-social_subtitle: "Messy backend problems. Structural fixes. Shipped systems"
+description: "Stanislav Smirnov — I build small software systems and untangle backend and integration problems."
+social_subtitle: "Small software systems. Messy problems untangled."
 work_proof:
   - page: /stories/configurable-task-verification
-    label: Verification
-    steps: [External actions, Typed checks, Completion records]
-    context: TON Expert Club / GVWS
-    summary: Campaigns asked users to join channels, hold tokens, or act in partner apps. I built the backend checks and completion rules so each action could feed the same reward system without hard-coding every campaign
-    evidence: "848k task completions · 116 campaigns"
+    context: GVWS
+    title: Verify tasks across apps
+    summary: Connected partner-app and wallet checks to shared rules for campaign progress and rewards.
+  - page: /stories/telegram-campaign-routing
+    context: GVWS
+    title: Open the right campaign
+    summary: Carried a short invitation code from a Telegram bot into the matching Mini App campaign.
   - page: /stories/private-round-investment-flow
-    label: Investment flow
-    preview: Eligibility · KYC · wallet payments · vesting
-    steps: [Eligibility, Wallet payment, Vesting]
-    context: Open Builders / Tonstarter
-    summary: An investor’s next step depended on eligibility, allocation, KYC, and wallet payment state. I worked across the backend and frontend to connect those states with vesting details and acceptance notifications, so the interface could explain what happened next
+    context: Tonstarter
+    title: Guide investors through a round
+    summary: Connected eligibility, payment, and investment terms so the interface could explain the next step.
   - page: /stories/commerce-checkout-and-fulfilment
-    label: Checkout
-    preview: Payment · inventory · carrier · customer
-    steps: [Payment, Inventory, Delivery]
     context: Viceseason
-    summary: An international store needed payment results, stock, delivery prices, and carrier orders to stay connected. I worked across checkout and fulfilment, including payment verification, shipping integrations, order emails, and operational notifications
+    title: Connect checkout to fulfilment
+    summary: Linked payments, stock, shipping, and notifications across an international store’s purchase flow.
 ---

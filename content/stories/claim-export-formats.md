@@ -22,4 +22,4 @@ I separated the Binance formatter from the Wallet/OKX format and implemented the
 
 Related changes worked on address validation and claims that needed both an address and an external identifier or memo. These details belonged in the integration path rather than being left for someone to repair manually after an export.
 
-The work was narrower than the whole distribution system: turn the recorded claim into the correct destination-specific representation, without pretending every destination accepted the same thing.
+My scope was the claim/export integration. The product could keep its own claim records while the export boundary handled the representation required by each destination.

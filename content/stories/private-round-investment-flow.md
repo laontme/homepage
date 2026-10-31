@@ -19,26 +19,24 @@ related_projects:
   - tonstarter-launchpad
 ---
 
-## Context
+A private-round investment flow needed to explain an investor’s next step using several pieces of state: eligibility, allocation, KYC, wallet payment, and vesting terms.
 
-For a launchpad private round, an investor needs more than a payment screen. Eligibility, allocation, wallet state, KYC status, vesting terms, and acceptance communications all affect whether the product can correctly explain what happens next.
+At Tonstarter, I worked across the NestJS backend and React frontend to connect those records to the interface and investor communications.
 
-## What I changed
+## Make the available action reflect the investor’s record
 
-I worked across the frontend and backend of this flow:
+Eligibility determined access to the private round, while allocation data and round limits described the investment available to that person. I added and used private-investor eligibility data and connected allocation information to the interface.
 
-- added and used private-investor eligibility data;
-- connected allocation data to the interface;
-- handled wallet payment states and desktop/mobile wallet behaviour;
-- added KYC-pending and paid states;
-- surfaced vesting data and private-round limits;
-- updated schema support for non-integer values where the domain required it;
-- implemented investor-notification changes around acceptance.
+I also surfaced vesting data and private-round limits, and updated schema support for non-integer values where the domain required it. These details were part of the investment terms the application needed to represent.
 
-## Why it matters
+## Explain intermediate states
 
-The work was a state-coordination problem. The UI could not safely present payment or allocation as independent facts: it needed to render the investor’s current record and make the next permitted action obvious.
+KYC and wallet payment introduced states between starting and completing the flow. I added KYC-pending and paid states and worked on wallet payment behavior across desktop and mobile.
 
-## My role
+The interface needed to distinguish those situations so that the next action reflected the investor’s current record. Payment, allocation, and eligibility could not be treated as unrelated UI features.
 
-I implemented changes across the NestJS backend and React frontend during the private-round work. The source history shows the individual contributions; I am not claiming sole ownership of the launchpad or its design.
+## Carry the flow into communication
+
+My contributions also included notification changes around investor acceptance. The same journey continued outside the application through messages explaining what came next.
+
+This was frontend and backend work within the launchpad team. My role was connecting the relevant data, interface states, wallet interactions, and communications across that product path.
